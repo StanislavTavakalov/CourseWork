@@ -21,7 +21,7 @@ public class LoginLogic {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            try (Connection cn = DriverManager.getConnection(db,"root",""); Statement st = cn.createStatement()) {
+            try (Connection cn = DriverManager.getConnection(db,"root","root"); Statement st = cn.createStatement()) {
                
                 ResultSet rs = st.executeQuery("select * from accounts where name='" + enterLogin + "' and password='" + enterPass + "'");
                // st.executeQuery("insert into accounts values('stasp','123'");
