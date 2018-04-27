@@ -14,7 +14,7 @@ Password:
 <br/>${errorLoginPassMessage}
 <br/>${wrongAction}
 <br/>${nullPage}<br/>
-<button type="submit" class="btn btn-primary btn-block btn-large">Submit.</button>
+<button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
 
 
 <%--a href="controller?command=register">Register</a--%>
