@@ -25,6 +25,9 @@
                 </tr>
                 <tr>
                     <th><a  href="controller?command=logout">Logout</a></th>
+                    <!--test-->
+                    <th>Test</th>
+                    <!--test-->
                 </tr>
             </tbody>
         </table>
