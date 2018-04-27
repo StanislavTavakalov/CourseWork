@@ -1,0 +1,86 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23.04.2018, 8:11:05
+    Author     : Dima_T
+*/
+body {
+    font-family: Webdings;
+    font-size: 25;
+    color: #000000;
+    background: #ffccff;
+}
+
+form {
+   
+    font-family: Courier New;
+    background: #ccccff;
+    text-align: center;
+}
+
+br {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: smaller;
+    color: #555;
+  
+}
+input[type="submit"]{
+    
+    
+    height: 100px;
+    width: 100px;
+    background: #99ccff;
+    border: 0 none;
+    border-radius: 50%;
+    color: white;
+}
+
+h1 {
+    text-align: left;
+    letter-spacing: 6px;
+    font-size: 1.4em;
+    color: #be7429;
+    font-weight: normal;
+    width: 450px;
+}
+
+  button.new {
+   background: -moz-linear-gradient(#D0ECF4, #5BC9E1, #D0ECF4);
+   background: -webkit-gradient(linear, 0 0, 0  100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+   padding: 3px 7px;
+   color: #333;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   border: 1px solid #666;
+  }
+table {
+    width: 580px;
+    padding: 10px;
+    background-color: #c5e7e0;
+}
+
+th {
+    text-align: left;
+    border-bottom: 1px solid;
+}
+
+td {
+    padding: 10px;
+}
+
+a:link {
+   color: #be7429;
+   font-weight: normal;
+   text-decoration: none;
+}
+
+a:link:hover {
+   color: #be7429;
+   font-weight: normal;
+   text-decoration: underline;
+}
