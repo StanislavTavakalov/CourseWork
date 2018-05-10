@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import by.bntu.fitr.povt.jit.coursework.logic.LoginLogic;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import by.bntu.fitr.povt.jit.coursework.resource.MessageManager;
+import java.util.ArrayList;
 
 
 public class LoginCommand implements ActionCommand {
@@ -23,6 +24,10 @@ public class LoginCommand implements ActionCommand {
 // проверка логина и пароля
         if (LoginLogic.checkLogin(login, pass)) {
             request.setAttribute("user", login);
+            ArrayList<String> list = new ArrayList();
+            list.add("sdg");
+            list.add("654");
+            request.setAttribute("list",list);
             
 // определение пути к main.jsp
             page = ConfigurationManager.getProperty("path.page.main");
