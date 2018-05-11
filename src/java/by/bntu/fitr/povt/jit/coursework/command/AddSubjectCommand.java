@@ -5,12 +5,18 @@
  */
 package by.bntu.fitr.povt.jit.coursework.command;
 
+import by.bntu.fitr.povt.jit.coursework.logic.DataReadWriter;
 import by.bntu.fitr.povt.jit.coursework.logic.LoginLogic;
+import by.bntu.fitr.povt.jit.coursework.model.Activity;
+import by.bntu.fitr.povt.jit.coursework.model.Event;
+import by.bntu.fitr.povt.jit.coursework.model.Place;
 import by.bntu.fitr.povt.jit.coursework.model.Subject;
+import by.bntu.fitr.povt.jit.coursework.model.Teacher;
 import by.bntu.fitr.povt.jit.coursework.model.TimeTable;
 import by.bntu.fitr.povt.jit.coursework.model.User;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import by.bntu.fitr.povt.jit.coursework.resource.MessageManager;
+import java.util.GregorianCalendar;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -52,7 +58,16 @@ public class AddSubjectCommand implements ActionCommand{
             
 // определение пути к main.jsp
 //            page = ConfigurationManager.getProperty("path.page.main");
-//        } else {
+//        } else {    
+
+  DataReadWriter.addActivity(new Event(), "a");
+  //DataReadWriter.addActivity(new Subject(), "a");
+//  DataReadWriter.addActivity(new Subject(2018, new Teacher("teachers", "teacher_status"),
+//          Subject.Type.LECTURE, "sport", new Place("bntu"),
+//          new GregorianCalendar(2018, 5, 10, 18, 50), Activity.WeekDay.MONDAY), "a");
+
+//  DataReadWriter.addActivity("a","subject","math","bntu",12,40,"monday",
+//                "lecture",2018,"teacher","docent",0,0,0,0,0 );
             page = ConfigurationManager.getProperty("path.page.main");
 //            request.setAttribute("errorLoginPassMessage",MessageManager.getProperty("message.loginerror"));
 //            page = ConfigurationManager.getProperty("path.page.login");
