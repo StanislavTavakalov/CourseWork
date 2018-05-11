@@ -21,7 +21,7 @@ public abstract class Activity {
     
     private GregorianCalendar date;
    
-    enum WeekDay{
+    public enum WeekDay{
         MONDAY,TUESDAY,WENDSDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY
     }
     
