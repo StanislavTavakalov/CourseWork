@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author Dima_T
  */
 public class AddSubjectCommand implements ActionCommand{
-    private static final String PARAM_NAME_DAY  = "day";
+    private static final String PARAM_NAME_DAY  = "test";
     //private static final String PARAM_NAME_PASSWORD  = "password";
     
 
@@ -31,32 +31,12 @@ public class AddSubjectCommand implements ActionCommand{
     public String execute(HttpServletRequest request) {
         String page = null;
         
-// извлечение из запроса логина и пароля
-        String day = request.getParameter(PARAM_NAME_DAY);
-     //   String pass = request.getParameter(PARAM_NAME_PASSWORD);
+        request.getSession();
+       //System.out.print(request.getParameterNames());
+       // System.out.println(request.getParameter(PARAM_NAME_DAY));
         
-// проверка логина и пароля
-       // if (LoginLogic.checkLogin(login, pass)) {
-//            TimeTable timeTable = new TimeTable();
-//            testFun(timeTable);
-//            User user = new  User(login,pass,User.Role.USER,timeTable);
-//            
-//            request.setAttribute("user", user);
+        page = ConfigurationManager.getProperty("path.page.main");
 
-        System.out.println(day);
-//            ArrayList<String> list = new ArrayList();
-//            
-//            list.add("sdg");
-//            list.add("654");
-//            request.setAttribute("list",list);
-            
-// определение пути к main.jsp
-//            page = ConfigurationManager.getProperty("path.page.main");
-//        } else {
-            page = ConfigurationManager.getProperty("path.page.main");
-//            request.setAttribute("errorLoginPassMessage",MessageManager.getProperty("message.loginerror"));
-//            page = ConfigurationManager.getProperty("path.page.login");
-//        }
         return page;
     }
 }
