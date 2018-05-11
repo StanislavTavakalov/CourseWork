@@ -9,7 +9,7 @@ package by.bntu.fitr.povt.jit.coursework.model;
  *
  * @author Dima_T
  */
-class Teacher {
+public class Teacher {
     
     private String name;
     private String status;
