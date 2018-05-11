@@ -37,6 +37,7 @@ public class LoginCommand implements ActionCommand {
             User user = new  User(login,pass,User.Role.USER,timeTable);
             
             request.setAttribute("user", user);
+            request.getSession().setAttribute("user", user);
 //            ArrayList<String> list = new ArrayList();
 //            
 //            list.add("sdg");

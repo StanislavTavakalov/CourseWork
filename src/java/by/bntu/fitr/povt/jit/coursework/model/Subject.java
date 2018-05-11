@@ -12,25 +12,51 @@ import java.util.GregorianCalendar;
  * @author Dima_T
  */
 public class Subject extends Activity{
-    enum Type{
-        LECTURE,PRACTISE
+    public enum Type{
+        LECTURE,PRACTICE
     }
-    int year;
-    Teacher teacher;
+    private int year;
+    private Teacher teacher;
+    private Type type;
 
-    public Subject(int year, Teacher teacher, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
+    public Subject(int year, Teacher teacher, Type type, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
         super(name, place, date, weekDay);
         this.year = year;
         this.teacher = teacher;
+        this.type = type;
     }
-
-    
+   
 
     public Subject() {
         
         super();
         year = 2018;
         teacher = new Teacher();
+        type = Type.LECTURE;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     @Override

@@ -54,14 +54,14 @@
             <p class="layers">Year:</p>
         </div> 
         <div class="inputForm">
-            <
+            
             <select name="day">
-                <option value="monday">MONDAY</option>
-                <option>TSUESDAY</option>
+                <option value="1"> Monday</option>
+         
             </select>
             
 
-            <input type="text" class="" value="" />
+            <input type="text" name="test" class="" value="" />
 
             <input type="text" class="" value="" />
 
