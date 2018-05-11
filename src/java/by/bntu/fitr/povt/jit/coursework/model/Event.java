@@ -5,6 +5,7 @@
  */
 package by.bntu.fitr.povt.jit.coursework.model;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -13,14 +14,19 @@ import java.util.GregorianCalendar;
  */
 public class Event extends Activity{
 
+    private GregorianCalendar endTime;
+     
     @Override
     public boolean check() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Event(GregorianCalendar endTime, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
+    public Event(int count, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
         super(name, place, date, weekDay);
-        this.endTime = endTime;
+        
+        this.endTime = new GregorianCalendar();
+        //GregorianCalendar now = new GregorianCalendar();
+        //this.endTime = new GregorianCalendar(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH)+count*7);
     }
 
     public Event() {
@@ -28,8 +34,16 @@ public class Event extends Activity{
         endTime = new GregorianCalendar();
         
     }
+
+    public GregorianCalendar getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(GregorianCalendar endTime) {
+        this.endTime = endTime;
+    }
     
-    private GregorianCalendar endTime;
+   
     
     @Override
     public String getInfo() {
