@@ -44,12 +44,12 @@ public class AddSubjectCommand implements ActionCommand{
 //            list.add("sdg");
 //            list.add("654");
 //            request.setAttribute("list",list);
-            
 // определение пути к main.jsp
 //            page = ConfigurationManager.getProperty("path.page.main");
-//        } else {    
+//        } else {
+       
 
-  DataReadWriter.addActivity(new Event(), "a");
+  DataReadWriter.addActivity(new Event(), ((User)(request.getSession().getAttribute("user"))).getLogin());
   //DataReadWriter.addActivity(new Subject(), "a");
 //  DataReadWriter.addActivity(new Subject(2018, new Teacher("teachers", "teacher_status"),
 //          Subject.Type.LECTURE, "sport", new Place("bntu"),
