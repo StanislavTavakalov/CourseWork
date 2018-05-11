@@ -1,20 +1,25 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package by.bntu.fitr.povt.jit.coursework.command;
 
-import javax.servlet.http.HttpServletRequest;
 import by.bntu.fitr.povt.jit.coursework.logic.LoginLogic;
 import by.bntu.fitr.povt.jit.coursework.model.Subject;
 import by.bntu.fitr.povt.jit.coursework.model.TimeTable;
 import by.bntu.fitr.povt.jit.coursework.model.User;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import by.bntu.fitr.povt.jit.coursework.resource.MessageManager;
-import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
 
-
-public class LoginCommand implements ActionCommand {
-
-   
-    private static final String PARAM_NAME_LOGIN  = "login";
-    private static final String PARAM_NAME_PASSWORD  = "password";
+/**
+ *
+ * @author Dima_T
+ */
+public class AddSubjectCommand implements ActionCommand{
+    private static final String PARAM_NAME_DAY  = "day";
+    //private static final String PARAM_NAME_PASSWORD  = "password";
     
 
     public static void testFun(TimeTable timeTable){
@@ -27,16 +32,18 @@ public class LoginCommand implements ActionCommand {
         String page = null;
         
 // извлечение из запроса логина и пароля
-        String login = request.getParameter(PARAM_NAME_LOGIN);
-        String pass = request.getParameter(PARAM_NAME_PASSWORD);
+        String day = request.getParameter(PARAM_NAME_DAY);
+     //   String pass = request.getParameter(PARAM_NAME_PASSWORD);
         
 // проверка логина и пароля
-        if (LoginLogic.checkLogin(login, pass)) {
-            TimeTable timeTable = new TimeTable();
-            testFun(timeTable);
-            User user = new  User(login,pass,User.Role.USER,timeTable);
-            
-            request.setAttribute("user", user);
+       // if (LoginLogic.checkLogin(login, pass)) {
+//            TimeTable timeTable = new TimeTable();
+//            testFun(timeTable);
+//            User user = new  User(login,pass,User.Role.USER,timeTable);
+//            
+//            request.setAttribute("user", user);
+
+        System.out.println(day);
 //            ArrayList<String> list = new ArrayList();
 //            
 //            list.add("sdg");
@@ -44,12 +51,12 @@ public class LoginCommand implements ActionCommand {
 //            request.setAttribute("list",list);
             
 // определение пути к main.jsp
+//            page = ConfigurationManager.getProperty("path.page.main");
+//        } else {
             page = ConfigurationManager.getProperty("path.page.main");
-        } else {
-            request.setAttribute("errorLoginPassMessage",MessageManager.getProperty("message.loginerror"));
-            page = ConfigurationManager.getProperty("path.page.login");
-        }
+//            request.setAttribute("errorLoginPassMessage",MessageManager.getProperty("message.loginerror"));
+//            page = ConfigurationManager.getProperty("path.page.login");
+//        }
         return page;
     }
 }
-

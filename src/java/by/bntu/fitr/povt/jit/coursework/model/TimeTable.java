@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  *
@@ -18,6 +19,14 @@ public class TimeTable implements Iterable<Activity>{
     private List<Activity> activities;
 
     public TimeTable(List<Activity> activities) {
+        this.activities = activities;
+    }
+
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(List<Activity> activities) {
         this.activities = activities;
     }
 
@@ -49,6 +58,12 @@ public class TimeTable implements Iterable<Activity>{
     
     public Activity remove(int index) {
         return activities.remove(index);
+    }
+
+    @Override
+    public void forEach(Consumer<? super Activity> action) {
+        activities.forEach(action);
+        //Iterable.super.forEach(action); //To change body of generated methods, choose Tools | Templates.
     }
     
     

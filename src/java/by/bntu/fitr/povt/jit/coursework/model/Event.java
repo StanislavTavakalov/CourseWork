@@ -30,4 +30,9 @@ public class Event extends Activity{
     }
     
     private GregorianCalendar endTime;
+    
+    @Override
+    public String getInfo() {
+        return endTime.toString();
+    }
 }

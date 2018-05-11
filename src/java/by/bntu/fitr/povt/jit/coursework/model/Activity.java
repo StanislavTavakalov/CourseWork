@@ -78,7 +78,9 @@ public abstract class Activity {
     public void setDate(GregorianCalendar date) {
         this.date = date;
     }
+    public abstract String getInfo();
+}
 
     
     
-}
+

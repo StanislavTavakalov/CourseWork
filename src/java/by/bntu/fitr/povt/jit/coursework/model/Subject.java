@@ -24,6 +24,8 @@ public class Subject extends Activity{
         this.teacher = teacher;
     }
 
+    
+
     public Subject() {
         
         super();
@@ -37,4 +39,8 @@ public class Subject extends Activity{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public String getInfo() {
+        return year + " "  + teacher.getName() + " " + teacher.getStatus();
+    }
 }

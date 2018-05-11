@@ -1,6 +1,7 @@
 package by.bntu.fitr.povt.jit.coursework.command.client;
 
 import by.bntu.fitr.povt.jit.coursework.command.ActionCommand;
+import by.bntu.fitr.povt.jit.coursework.command.AddSubjectCommand;
 import by.bntu.fitr.povt.jit.coursework.command.LoginCommand;
 import by.bntu.fitr.povt.jit.coursework.command.LogoutCommand;
 import by.bntu.fitr.povt.jit.coursework.command.RegisterCommand;
@@ -27,6 +28,12 @@ public enum CommandEnum {
     TOREGISTERPAGE {
         {
             this.command = new ToRegisterPageCommand();
+        }
+    },
+    
+     ADDSUBJECT {
+        {
+            this.command = new AddSubjectCommand();
         }
     };
     
