@@ -69,4 +69,14 @@ public class Subject extends Activity{
     public String getInfo() {
         return year + " "  + teacher.getName() + " " + teacher.getStatus();
     }
+    
+    @Override
+    public String toString() {
+         return "Subject{" + "name=" + getName() + ", place=" + getPlace() +
+                ", date=" + getDate() + ", weekDay=" + getWeekDay() +
+                 ", year=" + year + ", teacher=" + teacher + ", type=" + type + '}';
+    }
+        
+   
+   
 }
