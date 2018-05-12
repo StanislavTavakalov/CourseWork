@@ -23,13 +23,13 @@ import java.util.Calendar;
  */
 public class DataReadWriter {
 
-    public static boolean addActivity(Activity activity, String userLogin) {
+    public static boolean addActivity(Activity activity, User user) {
 
         if (activity.getClass() == Subject.class) {
             //System.out.println("activity.getClass() == Subject.class");
-            return addSubject((Subject) activity, userLogin);
+            return addSubject((Subject) activity, user);
         } else if (activity.getClass() == Event.class) {
-            return addEvent((Event) activity, userLogin);
+            return addEvent((Event) activity, user);
         }
         return false;
     }
@@ -87,7 +87,7 @@ public class DataReadWriter {
 //        }
 //    }
 //    
-    public static boolean addSubject(Subject s, String userLogin) {
+    public static boolean addSubject(Subject s, User user) {
 
         String db = "jdbc:mysql://localhost:3306/accounts";
         try {
@@ -102,7 +102,7 @@ public class DataReadWriter {
                         + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
                 // , , , , , , , , , , , 
                 //ps.setString(1, user.getLogin());
-                ps.setString(1, userLogin);
+                ps.setString(1, user.getLogin());
                 ps.setString(2, "subject");
                 ps.setString(3, s.getName());
                 ps.setString(4, s.getPlace().getName());
@@ -133,7 +133,7 @@ public class DataReadWriter {
         }
     }
 
-    public static boolean addEvent(Event s, String userLogin) {
+    public static boolean addEvent(Event s, User user) {
 
         String db = "jdbc:mysql://localhost:3306/accounts";
         try {
@@ -147,7 +147,7 @@ public class DataReadWriter {
                         + "event_year, event_month, event_day, event_hour, event_minute)"
                         + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
                 // , , , , , , , , , , , 
-                ps.setString(1, userLogin);
+                ps.setString(1, user.getLogin());
                 ps.setString(2, "event");
                 ps.setString(3, s.getName());
                 ps.setString(4, s.getPlace().getName());
@@ -177,4 +177,5 @@ public class DataReadWriter {
             return false;
         }
     }
+
 }
