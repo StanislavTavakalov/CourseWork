@@ -26,6 +26,11 @@ public class Event extends Activity {
         this.endTime = endTime;
     }
 
+    public Event(int year, int month, int day, int hour, int minute, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
+        super(name, place, date, weekDay);
+        endTime = new GregorianCalendar(year, month, day, hour, minute);
+    }
+
     public Event(int count, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
         super(name, place, date, weekDay);
 
