@@ -109,6 +109,7 @@
                         <tbody>
                             <c:forEach items= "${user.timeTable.activities}" var="item" >
                                 <tr>
+                                    <th> ${item.time} </th>
                                     <th> ${item.name} </th>
                                     <th> ${item.place.name} </th>
                                     <th> ${item.info} </th>
