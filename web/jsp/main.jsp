@@ -52,6 +52,7 @@
                 <p class="layers">Date:</p>
                 <p class="layers">Year:</p>
             </div> 
+            <%--MONDAY,TSUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY --%>
             <div class="inputForm">
                 <select class="chooseDay" name="weekDay">
                     <option value="MONDAY"> Monday</option>
@@ -101,9 +102,12 @@
             <div class="container additonal layer" style="margin-top:300px" >
 
                 <table class="table table-striped " >
-                    <c:forEach var="i"  begin="1" end="5" >
+                    <%--c:forEach var="i"  begin="1" end="5" --%>
+                    <c:forTokens items = "MONDAY,TSUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY" delims = "," var = "weekday">
+         
+      
                         <thead> 
-                        <td style="text-align: center" colspan="4" > Monday </td>
+                        <td style="text-align: center" colspan="4" > ${weekday} </td>
                         </thead>
 
                         <tbody>
@@ -115,6 +119,7 @@
                                     <th> ${item.info} </th>
 
                                 </tr>
+                      
 
                             </c:forEach>
                             <%--c:forEach var="i"  begin="1" end="10" >
@@ -127,7 +132,8 @@
                             </tr>
                         </c:forEach--%>
                         </tbody>
-                    </c:forEach>
+                    <%--/c:forEach--%>
+                    </c:forTokens>
                 </table>
             </div>
         </form>
