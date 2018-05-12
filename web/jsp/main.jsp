@@ -12,38 +12,28 @@
         <title>Welcome</title>
     </head>
     <body>
+
+        <table class="profile"> 
+
+            <tbody>
+                <tr>
+                    <td class="profile1" rowspan="2"><img src="css/user.png" width="120" height="120"></td>
+                    <th class="profile2"> ${user.login}</th>
+                </tr>
+                <tr>
+                    <th class="profile2"><a  href="controller?command=logout">Logout</a></th>
+
+                </tr>
+            </tbody>
+        </table>
+
         <form name="addSubjectForm" method="POST" action="controller">
-            <table class="profile"> 
-
-                <tbody>
-                    <tr>
-                        <td class="profile1" rowspan="2"><img src="css/user.png" width="120" height="120"></td>
-                        <th class="profile2"> ${user.login}</th>
-                    </tr>
-                    <tr>
-                        <th class="profile2"><a  href="controller?command=logout">Logout</a></th>
-
-                    </tr>
-                </tbody>
-            </table>
-
             <div class="button1">
-
                 <input type="hidden" name="command" value="addsubject" />
                 <button type="submit" class="btn btn-primary btn-block btn-large ">Add subject</button>
+
             </div>
 
-            <div class="button2">
-                <button type="submit" class="btn btn-primary btn-block btn-large ">Add event</button>
-            </div>
-
-            <div class="button3">
-                <button type="submit" class="btn btn-primary btn-block btn-large ">Delete subject</button>
-            </div>
-
-            <div class="button4">
-                <button type="submit" class="btn btn-primary btn-block btn-large ">Update timetable</button>
-            </div>
 
             <div class="inputLayer1">
                 <p class="layers">Day:</p>
@@ -52,6 +42,7 @@
                 <p class="layers">Type:</p>
                 <p class="layers">Place:</p>
             </div> 
+
             <%--MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY --%>
             <div class="inputForm1">
                 <select class="choose" style="width: 80%" name="weekDaySubject">
@@ -77,7 +68,7 @@
 
             </div>
 
-            
+
             <div class="inputLayer4">
                 <p class="layers">Year:</p>
                 <p class="layers">Teacher info:</p>
@@ -86,8 +77,8 @@
             <div class="inputForm4">
                 <input type="number" style="width: 80%" name="subjectYear" class="" value="2018" />
             </div>
-            
-            
+
+
             <div class="inputLayer2">
                 <p class="layers">Name:</p>
                 <p class="layers">Status:</p>
@@ -98,6 +89,14 @@
                 <input type="text" style="width: 80%" name="teacherStatus" class="" value="" />
             </div>
 
+
+        </form>
+        <form name="addEventForm" method="POST" action="controller">
+            <input type="hidden" name="command" value="addevent" />
+            <div class="button2">
+
+                <button type="submit" class="btn btn-primary btn-block btn-large ">Add event</button>
+            </div>
 
             <div class="inputLayer3">
                 <p class="layers">Day:</p>
@@ -124,60 +123,71 @@
                 <input type="text" style="width: 80%" name="eventName" class="" value="" />
 
                 <input type="time" style="width: 80%" name="eventTime" class="" value="" />
-                
-                 <input type="datetime-local" style="width: 80%" name="eventEndTime" class="" value="" />
-                 
+
+                <input type="datetime-local" style="width: 80%" name="eventEndTime" class="" value="" />
+
                 <input type="text" style="width: 80%" name="eventPlace" class="" value="" />
 
-               
+
 
             </div>
-            
-            <div class="inputLayerDelete">
-                <p class="layers">Day:</p>
-                <p class="layers">Index:</p>
-            </div> 
 
-            <div class="inputFormDelete">
-                <select style="width: 100%" class="choose" name="weekDayDelete">
-                    <option value="MONDAY"> Monday</option>
-                    <option value="TUESDAY"> Tuesday</option>
-                    <option value="WEDNESDAY"> Wednesday</option>
-                    <option value="THURSDAY"> Thursday</option>
-                    <option value="FRIDAY"> Friday</option>
-                    <option value="SATURDAY"> Saturday</option>
-                    <option value="SUNDAY"> Sunday</option>
-                </select>
-                <input type="number" style="width: 100%" name="deleteIndex" class="" value="1" />
-            </div>
+        </form>
+        <div class="button3">
+            <button type="submit" class="btn btn-primary btn-block btn-large ">Delete subject</button>
+        </div>
+
+        <div class="button4">
+            <button type="submit" class="btn btn-primary btn-block btn-large ">Update timetable</button>
+        </div>
 
 
 
-            <div class="container additonal layer" style="margin-top:300px" >
+        <div class="inputLayerDelete">
+            <p class="layers">Day:</p>
+            <p class="layers">Index:</p>
+        </div> 
 
-                <table class="table table-striped " >
-                    <%--c:forEach var="i"  begin="1" end="5" --%>
-                    <c:forTokens items = "MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY" delims = "," var = "weekday">
+        <div class="inputFormDelete">
+            <select style="width: 100%" class="choose" name="weekDayDelete">
+                <option value="MONDAY"> Monday</option>
+                <option value="TUESDAY"> Tuesday</option>
+                <option value="WEDNESDAY"> Wednesday</option>
+                <option value="THURSDAY"> Thursday</option>
+                <option value="FRIDAY"> Friday</option>
+                <option value="SATURDAY"> Saturday</option>
+                <option value="SUNDAY"> Sunday</option>
+            </select>
+            <input type="number" style="width: 100%" name="deleteIndex" class="" value="1" />
+        </div>
 
 
-                        <thead> 
-                        <td style="text-align: center" colspan="4" > ${weekday} </td>
-                        </thead>
 
-                        <tbody>
-                            <c:forEach items= "${user.timeTable.activities}" var="item" >
-                                <c:if test="${item.weekDay.toString()==weekday}"> 
-                                    <tr>
-                                        <th> ${item.time} </th>
-                                        <th> ${item.name} </th>
-                                        <th> ${item.place.name} </th>
-                                        <th> ${item.info} </th>
+        <div class="container additonal layer" style="margin-top:300px" >
 
-                                    </tr>
-                                </c:if>
-                            </c:forEach>
-                            <%--c:forEach var="i"  begin="1" end="10" >
+            <table class="table table-striped " >
+                <%--c:forEach var="i"  begin="1" end="5" --%>
+                <c:forTokens items = "MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY" delims = "," var = "weekday">
+
+
+                    <thead> 
+                    <td style="text-align: center" colspan="4" > ${weekday} </td>
+                    </thead>
+
+                    <tbody>
+                        <c:forEach items= "${user.timeTable.activities}" var="item" >
+                            <c:if test="${item.weekDay.toString()==weekday}"> 
                                 <tr>
+                                    <th> ${item.time} </th>
+                                    <th> ${item.name} </th>
+                                    <th> ${item.place.name} </th>
+                                    <th> ${item.info} </th>
+
+                                </tr>
+                            </c:if>
+                        </c:forEach>
+                        <%--c:forEach var="i"  begin="1" end="10" >
+                            <tr>
 
                                 <th> ${user.timetable} </th>
                                 <th> 14.00 </th>
@@ -185,12 +195,12 @@
                                 <th> 316 </th>
                             </tr>
                         </c:forEach--%>
-                        </tbody>
-                        <%--/c:forEach--%>
-                    </c:forTokens>
-                </table>
-            </div>
-        </form>
+                    </tbody>
+                    <%--/c:forEach--%>
+                </c:forTokens>
+            </table>
+        </div>
+
 
     </body>
 
