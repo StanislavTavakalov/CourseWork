@@ -120,7 +120,6 @@
                                         <th> ${item.info} </th>
 
                                     </tr>
-
                                 </c:if>
                             </c:forEach>
                             <%--c:forEach var="i"  begin="1" end="10" >
