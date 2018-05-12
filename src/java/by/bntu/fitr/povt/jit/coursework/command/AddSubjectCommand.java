@@ -50,7 +50,7 @@ public class AddSubjectCommand implements ActionCommand{
 //        } else {
        
 
-  DataReadWriter.addActivity(new Event(), ((User)(request.getSession().getAttribute("user"))).getLogin());
+  DataReadWriter.addActivity(new Event(), ((User)(request.getSession().getAttribute("user"))));
   //DataReadWriter.addActivity(new Subject(), "a");
 //  DataReadWriter.addActivity(new Subject(2018, new Teacher("teachers", "teacher_status"),
 //          Subject.Type.LECTURE, "sport", new Place("bntu"),
