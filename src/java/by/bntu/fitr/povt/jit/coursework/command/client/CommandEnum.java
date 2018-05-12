@@ -1,6 +1,7 @@
 package by.bntu.fitr.povt.jit.coursework.command.client;
 
 import by.bntu.fitr.povt.jit.coursework.command.ActionCommand;
+import by.bntu.fitr.povt.jit.coursework.command.AddEventCommand;
 import by.bntu.fitr.povt.jit.coursework.command.AddSubjectCommand;
 import by.bntu.fitr.povt.jit.coursework.command.LoginCommand;
 import by.bntu.fitr.povt.jit.coursework.command.LogoutCommand;
@@ -34,6 +35,11 @@ public enum CommandEnum {
      ADDSUBJECT {
         {
             this.command = new AddSubjectCommand();
+        }
+     },
+     ADDEVENT {
+        {
+            this.command = new AddEventCommand();
         }
     };
     
