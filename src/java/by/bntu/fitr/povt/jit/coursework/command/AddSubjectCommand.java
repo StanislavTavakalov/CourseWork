@@ -18,28 +18,68 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author Dima_T
  */
-public class AddSubjectCommand implements ActionCommand{
-    private static final String PARAM_NAME_DAY  = "weekDay";
-    //private static final String PARAM_NAME_PASSWORD  = "password";
-    
+public class AddSubjectCommand implements ActionCommand {
 
-    public static void testFun(TimeTable timeTable){
+    private static final String PARAM_SUBJECT_DAY = "weekDaySubject";
+    private static final String PARAM_SUBJECT_NAME = "subjectName";
+    private static final String PARAM_SUBJECT_TIME = "subjectTime";
+    private static final String PARAM_SUBJECT_TYPE = "subjectType";
+    private static final String PARAM_SUBJECT_YEAR = "subjectYear";
+    private static final String PARAM_SUBJECT_PLACE_NAME = "subjectPlace";
+    private static final String PARAM_SUBJECT_TEACHER_NAME = "teacherName";
+    private static final String PARAM_SUBJECT_TEACHER_STATUS = "teacherStatus";
+    private static final String PARAM_EVENT_DAY = "weekDayEvent";
+    private static final String PARAM_EVENT_NAME = "eventName";
+    private static final String PARAM_EVENT_TIME = "eventTime";
+    private static final String PARAM_EVENT_PLACE = "eventPlace";
+    private static final String PARAM_EVENT_END_TIME = "eventEndTime";
+    //private static final String PARAM_NAME_PASSWORD  = "password";
+
+    public static void testFun(TimeTable timeTable) {
         timeTable.add(new Subject());
         timeTable.add(new Subject());
         timeTable.add(new Subject());
     }
+
     @Override
     public String execute(HttpServletRequest request) {
         String page = null;
-        
-        request.getSession();
-       //System.out.print(request.getParameterNames());
-       
-        System.out.println(request.getParameter(PARAM_NAME_DAY));
-        
-        page = ConfigurationManager.getProperty("path.page.main");
+
+        try {
+            String weekDay = request.getParameter(PARAM_SUBJECT_DAY);
+            String name = request.getParameter(PARAM_SUBJECT_NAME);
+            String time = request.getParameter(PARAM_SUBJECT_TIME);
+            String type = request.getParameter(PARAM_SUBJECT_TYPE);
+            String year = request.getParameter(PARAM_SUBJECT_YEAR);
+            String placeName = request.getParameter(PARAM_SUBJECT_PLACE_NAME);
+            String teacherName = request.getParameter(PARAM_SUBJECT_TEACHER_NAME);
+            String teacherStatus = request.getParameter(PARAM_SUBJECT_TEACHER_STATUS);
+
+            int hour = Integer.parseUnsignedInt(time.substring(0, 2));
+            //System.out.println(hour);
+            int minute = Integer.parseUnsignedInt(time.substring(3));
+            //System.out.println(minute);
 
        
+            DataReadWriter.addActivity(
+                    new Subject(Integer.parseInt(year),
+                            new Teacher(teacherName, teacherStatus),
+                            Subject.Type.valueOf(type), name, new Place(placeName),
+                            hour, minute,
+                            Activity.WeekDay.valueOf(weekDay)),
+                    ((User) (request.getSession().getAttribute("user"))));
+            
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
+        //request.getSession();
+        //System.out.print(request.getParameterNames());
+        //System.out.println(request.getParameter(PARAM_NAME_DAY));
+        //System.out.println(request.getParameter("testtime"));
+        page = ConfigurationManager.getProperty("path.page.main");
+
 //            ArrayList<String> list = new ArrayList();
 //            
 //            list.add("sdg");
@@ -48,17 +88,14 @@ public class AddSubjectCommand implements ActionCommand{
 // определение пути к main.jsp
 //            page = ConfigurationManager.getProperty("path.page.main");
 //        } else {
-       
-
-  DataReadWriter.addActivity(new Event(), ((User)(request.getSession().getAttribute("user"))));
-  //DataReadWriter.addActivity(new Subject(), "a");
+        //DataReadWriter.addActivity(new Event(), ((User)(request.getSession().getAttribute("user"))));
+        //DataReadWriter.addActivity(new Subject(), "a");
 //  DataReadWriter.addActivity(new Subject(2018, new Teacher("teachers", "teacher_status"),
 //          Subject.Type.LECTURE, "sport", new Place("bntu"),
 //          new GregorianCalendar(2018, 5, 10, 18, 50), Activity.WeekDay.MONDAY), "a");
-
 //  DataReadWriter.addActivity("a","subject","math","bntu",12,40,"monday",
 //                "lecture",2018,"teacher","docent",0,0,0,0,0 );
-            page = ConfigurationManager.getProperty("path.page.main");
+        page = ConfigurationManager.getProperty("path.page.main");
 //            request.setAttribute("errorLoginPassMessage",MessageManager.getProperty("message.loginerror"));
 //            page = ConfigurationManager.getProperty("path.page.login");
 //        }
