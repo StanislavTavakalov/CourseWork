@@ -136,7 +136,6 @@
         <form name="deleteActivityForm" method="POST" action="controller">
             <input type="hidden" name="command" value="deleteactivity" />
             <div class="button3">
-                
                 <button type="submit" class="btn btn-primary btn-block btn-large ">Delete subject</button>
             </div>
 
