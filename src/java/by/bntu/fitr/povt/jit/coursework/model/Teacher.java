@@ -39,6 +39,11 @@ public class Teacher {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Teacher{" + "name=" + name + ", status=" + status + '}';
+    }
     
     
     
