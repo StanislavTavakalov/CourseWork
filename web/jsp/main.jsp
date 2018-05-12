@@ -54,7 +54,7 @@
             </div> 
             <%--MONDAY,TSUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY --%>
             <div class="inputForm1">
-                <select class="choose" name="weekDaySubject">
+                <select class="choose" style="width: 80%" name="weekDaySubject">
                     <option value="MONDAY"> Monday</option>
                     <option value="TSUESDAY"> Tsuesday</option>
                     <option value="WEDNESDAY"> Wednesday</option>
@@ -64,16 +64,16 @@
                     <option value="SUNDAY"> Sunday</option>
                 </select>
 
-                <input type="text" name="subjectName" class="" value="" />
+                <input type="text" style="width: 80%" name="subjectName" class="" value="" />
 
-                <input type="time" name="subjectTime" class="" value="" />
+                <input type="time" style="width: 80%" name="subjectTime" class="" value="" />
 
-                <select class="choose" name="subjectType">
+                <select class="choose" style="width: 80%" name="subjectType">
                     <option value="LECTURE"> Lecture</option>
                     <option value="PRACTISE"> Practise</option>
                 </select>
 
-                <input type="text" name="subjectPlace" class="" value="" />
+                <input type="text" style="width: 80%" name="subjectPlace" class="" value="" />
 
             </div>
 
@@ -84,7 +84,7 @@
             </div> 
 
             <div class="inputForm4">
-                <input type="number" name="subjectYear" class="" value="2018" />
+                <input type="number" style="width: 80%" name="subjectYear" class="" value="2018" />
             </div>
             
             
@@ -94,8 +94,8 @@
             </div> 
 
             <div class="inputForm2">
-                <input type="text" name="teacherName" class="" value="" />
-                <input type="text" name="teacherStatus" class="" value="" />
+                <input type="text" style="width: 80%" name="teacherName" class="" value="" />
+                <input type="text" style="width: 80%" name="teacherStatus" class="" value="" />
             </div>
 
 
@@ -110,7 +110,7 @@
 
             <%--MONDAY,TSUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY --%>
             <div class="inputForm3">
-                <select class="choose" name="weekDayEvent">
+                <select style="width: 80%" class="choose" name="weekDayEvent">
                     <option value="MONDAY"> Monday</option>
                     <option value="TSUESDAY"> Tsuesday</option>
                     <option value="WEDNESDAY"> Wednesday</option>
@@ -121,13 +121,13 @@
                 </select>
 
 
-                <input type="text" name="eventName" class="" value="" />
+                <input type="text" style="width: 80%" name="eventName" class="" value="" />
 
-                <input type="time" name="eventTime" class="" value="" />
+                <input type="time" style="width: 80%" name="eventTime" class="" value="" />
                 
-                <input type="text" name="eventPlace" class="" value="" />
+                <input type="text" style="width: 80%" name="eventPlace" class="" value="" />
 
-                <input type="datetime-local" name="eventEndTime" class="" value="" />
+                <input type="datetime-local" style="width: 80%" name="eventEndTime" class="" value="" />
 
             </div>
             
