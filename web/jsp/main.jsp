@@ -133,33 +133,44 @@
             </div>
 
         </form>
-        <div class="button3">
-            <button type="submit" class="btn btn-primary btn-block btn-large ">Delete subject</button>
-        </div>
+        <form name="deleteActivityForm" method="POST" action="controller">
+            <input type="hidden" name="command" value="deleteactivity" />
+            <div class="button3">
+                
+                <button type="submit" class="btn btn-primary btn-block btn-large ">Delete subject</button>
+            </div>
 
+            <div class="inputLayerDelete">
+                <p class="layers">Day:</p>
+                <p class="layers">Index:</p>
+            </div> 
+
+            <div class="inputFormDelete">
+                <select style="width: 100%" class="choose" name="weekDayDelete">
+                    <option value="MONDAY"> Monday</option>
+                    <option value="TUESDAY"> Tuesday</option>
+                    <option value="WEDNESDAY"> Wednesday</option>
+                    <option value="THURSDAY"> Thursday</option>
+                    <option value="FRIDAY"> Friday</option>
+                    <option value="SATURDAY"> Saturday</option>
+                    <option value="SUNDAY"> Sunday</option>
+                </select>
+                <input type="number" style="width: 100%" name="deleteIndex" class="" value="1" />
+            </div>
+
+
+        </form>
+            
+            
+        <form name="updateTimeTable" method="POST" action="controller">
+        <input type="hidden" name="command" value="updatetimetable" />    
         <div class="button4">
             <button type="submit" class="btn btn-primary btn-block btn-large ">Update timetable</button>
         </div>
+        </form>
 
 
 
-        <div class="inputLayerDelete">
-            <p class="layers">Day:</p>
-            <p class="layers">Index:</p>
-        </div> 
-
-        <div class="inputFormDelete">
-            <select style="width: 100%" class="choose" name="weekDayDelete">
-                <option value="MONDAY"> Monday</option>
-                <option value="TUESDAY"> Tuesday</option>
-                <option value="WEDNESDAY"> Wednesday</option>
-                <option value="THURSDAY"> Thursday</option>
-                <option value="FRIDAY"> Friday</option>
-                <option value="SATURDAY"> Saturday</option>
-                <option value="SUNDAY"> Sunday</option>
-            </select>
-            <input type="number" style="width: 100%" name="deleteIndex" class="" value="1" />
-        </div>
 
 
 
