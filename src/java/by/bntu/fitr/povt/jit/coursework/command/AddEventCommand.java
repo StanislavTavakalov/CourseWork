@@ -20,39 +20,38 @@ public class AddEventCommand implements ActionCommand {
     private static final String PARAM_EVENT_NAME = "eventName";
     private static final String PARAM_EVENT_TIME = "eventTime";
     private static final String PARAM_EVENT_PLACE = "eventPlace";
-    private static final String PARAM_EVENT_END_TIME = "eventEndTime";
+    private static final String PARAM_EVENT_END_DATE_TIME = "eventEndTime";
  
     @Override
     public String execute(HttpServletRequest request) {
         String page = null;
 
-//        try {
-//            String weekDay = request.getParameter(PARAM_SUBJECT_DAY);
-//            String name = request.getParameter(PARAM_SUBJECT_NAME);
-//            String time = request.getParameter(PARAM_SUBJECT_TIME);
-//            String type = request.getParameter(PARAM_SUBJECT_TYPE);
-//            String year = request.getParameter(PARAM_SUBJECT_YEAR);
-//            String placeName = request.getParameter(PARAM_SUBJECT_PLACE_NAME);
-//            String teacherName = request.getParameter(PARAM_SUBJECT_TEACHER_NAME);
-//            String teacherStatus = request.getParameter(PARAM_SUBJECT_TEACHER_STATUS);
-//
-//            int hour = Integer.parseUnsignedInt(time.substring(0, 2));
-//            //System.out.println(hour);
-//            int minute = Integer.parseUnsignedInt(time.substring(3));
-//            //System.out.println(minute);
-//
-//       
-//            DataReadWriter.addActivity(
-//                    new Event(Integer.parseInt(year),
-//                            new Teacher(teacherName, teacherStatus),
-//                            Subject.Type.valueOf(type), name, new Place(placeName),
-//                            hour, minute,
-//                            Activity.WeekDay.valueOf(weekDay)),
-//                    ((User) (request.getSession().getAttribute("user"))));
-//
-//        } catch (Exception ex) {
-//            System.out.println(ex);
-//        }
+        try {
+            String weekDay = request.getParameter(PARAM_EVENT_DAY);
+            String name = request.getParameter(PARAM_EVENT_NAME);
+            String time = request.getParameter(PARAM_EVENT_TIME);
+            String placeName = request.getParameter(PARAM_EVENT_PLACE);
+            String endDateTime = request.getParameter(PARAM_EVENT_END_DATE_TIME);
+
+            int year = Integer.parseUnsignedInt(endDateTime.substring(0,4));
+            int month = Integer.parseUnsignedInt(endDateTime.substring(5,7));
+            int day = Integer.parseUnsignedInt(endDateTime.substring(8,10));
+            int hour = Integer.parseUnsignedInt(endDateTime.substring(11,13));
+            int minute = Integer.parseUnsignedInt(endDateTime.substring(14));
+            
+            int timeHour = Integer.parseUnsignedInt(time.substring(0, 2));
+            int timeMinute = Integer.parseUnsignedInt(time.substring(3));
+
+       
+            DataReadWriter.addActivity(
+                    new Event(year, month, day, hour, minute, name,
+                            new Place(placeName), timeHour, timeMinute,
+                            Activity.WeekDay.valueOf(weekDay)),
+                    ((User) (request.getSession().getAttribute("user"))));
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
         page = ConfigurationManager.getProperty("path.page.main");
         return page;
     }
