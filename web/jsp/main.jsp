@@ -42,19 +42,75 @@
             </div>
 
             <div class="button4">
-                <button type="submit" class="btn btn-primary btn-block btn-large ">Delete event</button>
+                <button type="submit" class="btn btn-primary btn-block btn-large ">Update timetable</button>
             </div>
 
-            <div class="inputLayer">
+            <div class="inputLayer1">
                 <p class="layers">Day:</p>
                 <p class="layers">Name:</p>
+                <p class="layers">Time:</p>
+                <p class="layers">Type:</p>
                 <p class="layers">Place:</p>
-                <p class="layers">Date:</p>
-                <p class="layers">Year:</p>
             </div> 
             <%--MONDAY,TSUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY --%>
-            <div class="inputForm">
-                <select class="chooseDay" name="weekDay">
+            <div class="inputForm1">
+                <select class="choose" name="weekDaySubject">
+                    <option value="MONDAY"> Monday</option>
+                    <option value="TSUESDAY"> Tsuesday</option>
+                    <option value="WEDNESDAY"> Wednesday</option>
+                    <option value="TSURSDAY"> Tsursday</option>
+                    <option value="FRIDAY"> Friday</option>
+                    <option value="SATURDAY"> Saturday</option>
+                    <option value="SUNDAY"> Sunday</option>
+                </select>
+
+                <input type="text" name="subjectName" class="" value="" />
+
+                <input type="time" name="subjectTime" class="" value="" />
+
+                <select class="choose" name="subjectType">
+                    <option value="LECTURE"> Lecture</option>
+                    <option value="PRACTISE"> Practise</option>
+                </select>
+
+                <input type="text" name="subjectPlace" class="" value="" />
+
+            </div>
+
+            
+            <div class="inputLayer4">
+                <p class="layers">Year:</p>
+                <p class="layers">Teacher info:</p>
+            </div> 
+
+            <div class="inputForm4">
+                <input type="number" name="subjectYear" class="" value="2018" />
+            </div>
+            
+            
+            <div class="inputLayer2">
+                <p class="layers">Name:</p>
+                <p class="layers">Status:</p>
+            </div> 
+
+            <div class="inputForm2">
+                <input type="text" name="teacherName" class="" value="" />
+                <input type="text" name="teacherStatus" class="" value="" />
+            </div>
+
+
+            <div class="inputLayer3">
+                <p class="layers">Day:</p>
+                <p class="layers">Name:</p>
+                <p class="layers">Time:</p>
+                <p class="layers">End Time:</p>
+                <p class="layers">Place:</p>
+
+            </div> 
+
+            <%--MONDAY,TSUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY --%>
+            <div class="inputForm3">
+                <select class="choose" name="weekDayEvent">
                     <option value="MONDAY"> Monday</option>
                     <option value="TSUESDAY"> Tsuesday</option>
                     <option value="WEDNESDAY"> Wednesday</option>
@@ -65,39 +121,35 @@
                 </select>
 
 
-                <input type="text" class="" value="" />
+                <input type="text" name="eventName" class="" value="" />
 
-                <input type="text" class="" value="" />
+                <input type="time" name="eventTime" class="" value="" />
+                
+                <input type="text" name="eventPlace" class="" value="" />
 
-                <input type="text" class="" value="" />
+                <input type="datetime" name="eventEndTime" class="" value="" />
 
-                <input type="text" class="" value="" />
+            </div>
+            
+            <div class="inputLayerDelete">
+                <p class="layers">Day:</p>
+                <p class="layers">Index:</p>
+            </div> 
 
-                <input type="text" class="" value="" />
-
-                <input type="text" class="" value="" />
+            <div class="inputFormDelete">
+                <select style="width: 100%" class="choose" name="weekDayDelete">
+                    <option value="MONDAY"> Monday</option>
+                    <option value="TSUESDAY"> Tsuesday</option>
+                    <option value="WEDNESDAY"> Wednesday</option>
+                    <option value="TSURSDAY"> Tsursday</option>
+                    <option value="FRIDAY"> Friday</option>
+                    <option value="SATURDAY"> Saturday</option>
+                    <option value="SUNDAY"> Sunday</option>
+                </select>
+                <input type="number" style="width: 100%" name="deleteIndex" class="" value="1" />
             </div>
 
 
-            <div class="inputForm2">
-
-                <input type="text" class="" value="" />
-
-                <input type="text" class="" value="" />
-
-                <input type="text" class="" value="" />
-
-                <input type="text" class="" value="" />
-
-                <input type="text" class="" value="" />
-
-                <input type="text" class="" value="" />
-
-                <input type="text" class="" value="" />
-            </div>
-            <%--c:forEach items= "${list}" var="item" >
-                ${item}
-            </c:forEach--%>       
 
             <div class="container additonal layer" style="margin-top:300px" >
 
