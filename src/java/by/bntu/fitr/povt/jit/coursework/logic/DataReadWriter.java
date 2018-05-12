@@ -209,18 +209,19 @@ public class DataReadWriter {
                                 Activity.WeekDay.valueOf(rs.getString("week_day")));
                         user.getTimeTable().add(subject);
                     }else if(rs.getString("activity_type").equals(ACTIVITY_TYPE_EVENT)){
-                       Event event = new Event();
-                               
-//                                rs.getInt("subject_year"),
-//                                new Teacher(rs.getString("subject_teacher_name"),rs.getString("subject_teacher_status")),
-//                                Subject.Type.valueOf(rs.getString("subject_type")),
-//                                rs.getString("name"), new Place(rs.getString("place_name")),
-//                                new GregorianCalendar(0, 0, 0, rs.getInt("date_hour"), rs.getInt("date_minute")),
-//                                Activity.WeekDay.valueOf(rs.getString("week_day")));
+                       Event event = new Event(
+                               new GregorianCalendar(rs.getInt("event_year"), rs.getInt("event_month"), rs.getInt("event_day"), rs.getInt("event_hour"), rs.getInt("event_minute")),
+                               rs.getString("name"), new Place(rs.getString("place_name")),
+                               new GregorianCalendar(0, 0, 0, rs.getInt("date_hour"), rs.getInt("date_minute")),
+                               Activity.WeekDay.valueOf(rs.getString("week_day")));
                         user.getTimeTable().add(event); 
                     }
                                      
                 }
+                //
+                //System.out.println(user.getTimeTable());
+               
+                //
                 rs.close();
                 return true;
 
