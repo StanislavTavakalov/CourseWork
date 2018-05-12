@@ -81,6 +81,9 @@ public abstract class Activity {
     public abstract String getInfo();
     
     public String getTime(){
+        if(date.get(Calendar.MINUTE)>=0 && date.get(Calendar.MINUTE)<10)
+            return date.get(Calendar.HOUR_OF_DAY) + ":0" + date.get(Calendar.MINUTE);
+        
         return date.get(Calendar.HOUR_OF_DAY) + ":" + date.get(Calendar.MINUTE);
     }
     
