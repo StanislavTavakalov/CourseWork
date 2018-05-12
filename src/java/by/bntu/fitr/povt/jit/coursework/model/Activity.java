@@ -79,6 +79,12 @@ public abstract class Activity {
         this.date = date;
     }
     public abstract String getInfo();
+    
+    public String getTime(){
+        return date.get(Calendar.HOUR_OF_DAY) + ":" + date.get(Calendar.MINUTE);
+    }
+    
+    
 
     @Override
     public String toString() {
