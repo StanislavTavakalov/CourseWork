@@ -18,7 +18,10 @@ public class Event extends Activity {
 
     @Override
     public boolean check() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(endTime.getTimeInMillis() - new GregorianCalendar().getTimeInMillis() < 0){
+            return false;
+        }
+        return true;
     }
 
     public Event(GregorianCalendar endTime, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
