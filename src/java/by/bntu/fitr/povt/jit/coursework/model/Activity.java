@@ -22,7 +22,7 @@ public abstract class Activity {
     private GregorianCalendar date;
    
     public enum WeekDay{
-        MONDAY,TUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY
+        MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY
     }
     
     private WeekDay weekDay;
@@ -31,6 +31,13 @@ public abstract class Activity {
         this.name = name;
         this.place = place;
         this.date = date;
+        this.weekDay = weekDay;
+    }
+    
+    public Activity(String name, Place place, int hour, int minute, WeekDay weekDay) {
+        this.name = name;
+        this.place = place;
+        date = new GregorianCalendar(0, 0, 0, hour, minute);
         this.weekDay = weekDay;
     }
 
