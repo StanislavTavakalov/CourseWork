@@ -61,6 +61,11 @@ public class User {
     public void setTimeTable(TimeTable timeTable) {
         this.timeTable = timeTable;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "login=" + login + ", password=" + password + ", role=" + role + ", timeTable=" + timeTable + '}';
+    }
   
   
 }
