@@ -104,23 +104,24 @@
                 <table class="table table-striped " >
                     <%--c:forEach var="i"  begin="1" end="5" --%>
                     <c:forTokens items = "MONDAY,TSUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY" delims = "," var = "weekday">
-         
-      
+
+
                         <thead> 
                         <td style="text-align: center" colspan="4" > ${weekday} </td>
                         </thead>
 
                         <tbody>
                             <c:forEach items= "${user.timeTable.activities}" var="item" >
-                                <tr>
-                                    <th> ${item.time} </th>
-                                    <th> ${item.name} </th>
-                                    <th> ${item.place.name} </th>
-                                    <th> ${item.info} </th>
+                                <c:if test="${item.weekDay.toString()==weekday}"> 
+                                    <tr>
+                                        <th> ${item.time} </th>
+                                        <th> ${item.name} </th>
+                                        <th> ${item.place.name} </th>
+                                        <th> ${item.info} </th>
 
-                                </tr>
-                      
+                                    </tr>
 
+                                </c:if>
                             </c:forEach>
                             <%--c:forEach var="i"  begin="1" end="10" >
                                 <tr>
@@ -132,7 +133,7 @@
                             </tr>
                         </c:forEach--%>
                         </tbody>
-                    <%--/c:forEach--%>
+                        <%--/c:forEach--%>
                     </c:forTokens>
                 </table>
             </div>
