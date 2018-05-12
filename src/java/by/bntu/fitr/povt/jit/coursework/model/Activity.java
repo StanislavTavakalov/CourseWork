@@ -79,6 +79,12 @@ public abstract class Activity {
         this.date = date;
     }
     public abstract String getInfo();
+
+    @Override
+    public String toString() {
+        return "Activity{" + "name=" + name + ", place=" + place + ", date=" + date + ", weekDay=" + weekDay + '}';
+    }
+    
 }
 
     
