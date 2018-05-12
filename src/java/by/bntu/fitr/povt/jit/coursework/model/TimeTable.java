@@ -65,6 +65,11 @@ public class TimeTable implements Iterable<Activity>{
         activities.forEach(action);
         //Iterable.super.forEach(action); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public String toString() {
+        return "TimeTable{" + "activities=" + activities + '}';
+    }
     
     
     
