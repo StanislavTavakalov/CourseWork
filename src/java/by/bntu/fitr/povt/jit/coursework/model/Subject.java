@@ -5,6 +5,7 @@
  */
 package by.bntu.fitr.povt.jit.coursework.model;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -69,8 +70,13 @@ public class Subject extends Activity{
 
     @Override
     public boolean check() {
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        GregorianCalendar now = new GregorianCalendar();
+        if(year < now.get(Calendar.YEAR)){
+            return false;
+        } else if(year == now.get(Calendar.YEAR) && now.get(Calendar.MONTH) > 5){
+            return false;
+        }
+        return true;
     }
     
     @Override
