@@ -42,9 +42,8 @@ public class AddEventCommand implements ActionCommand {
             int timeHour = Integer.parseUnsignedInt(time.substring(0, 2));
             int timeMinute = Integer.parseUnsignedInt(time.substring(3));
 
-       
             DataReadWriter.addActivity(
-                    new Event(year, month, day, hour, minute, name,
+                    new Event(year, month-1, day, hour, minute, name,
                             new Place(placeName), timeHour, timeMinute,
                             Activity.WeekDay.valueOf(weekDay)),
                     ((User) (request.getSession().getAttribute("user"))));
