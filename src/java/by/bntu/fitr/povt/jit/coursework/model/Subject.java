@@ -13,7 +13,7 @@ import java.util.GregorianCalendar;
  */
 public class Subject extends Activity{
     public enum Type{
-        LECTURE,PRACTICE
+        LECTURE,PRACTISE
     }
     private int year;
     private Teacher teacher;
@@ -21,6 +21,14 @@ public class Subject extends Activity{
 
     public Subject(int year, Teacher teacher, Type type, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
         super(name, place, date, weekDay);
+        this.year = year;
+        this.teacher = teacher;
+        this.type = type;
+    }
+    
+    public Subject(int year, Teacher teacher, Type type, String name, Place place,
+            int hour, int minute, WeekDay weekDay) {
+        super(name, place, hour, minute, weekDay);
         this.year = year;
         this.teacher = teacher;
         this.type = type;
