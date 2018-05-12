@@ -125,9 +125,11 @@
 
                 <input type="time" style="width: 80%" name="eventTime" class="" value="" />
                 
+                 <input type="datetime-local" style="width: 80%" name="eventEndTime" class="" value="" />
+                 
                 <input type="text" style="width: 80%" name="eventPlace" class="" value="" />
 
-                <input type="datetime-local" style="width: 80%" name="eventEndTime" class="" value="" />
+               
 
             </div>
             
