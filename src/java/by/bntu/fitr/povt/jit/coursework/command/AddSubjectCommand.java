@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author Dima_T
  */
 public class AddSubjectCommand implements ActionCommand{
-    private static final String PARAM_NAME_DAY  = "test";
+    private static final String PARAM_NAME_DAY  = "weekDay";
     //private static final String PARAM_NAME_PASSWORD  = "password";
     
 
@@ -34,11 +34,12 @@ public class AddSubjectCommand implements ActionCommand{
         
         request.getSession();
        //System.out.print(request.getParameterNames());
-       // System.out.println(request.getParameter(PARAM_NAME_DAY));
+       
+        System.out.println(request.getParameter(PARAM_NAME_DAY));
         
         page = ConfigurationManager.getProperty("path.page.main");
 
-        //System.out.println(day);
+       
 //            ArrayList<String> list = new ArrayList();
 //            
 //            list.add("sdg");

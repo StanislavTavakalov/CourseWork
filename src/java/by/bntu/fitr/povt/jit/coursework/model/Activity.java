@@ -22,7 +22,7 @@ public abstract class Activity {
     private GregorianCalendar date;
    
     public enum WeekDay{
-        MONDAY,TUESDAY,WENDSDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY
+        MONDAY,TUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY
     }
     
     private WeekDay weekDay;

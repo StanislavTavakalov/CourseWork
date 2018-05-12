@@ -109,3 +109,9 @@ and open the template in the editor.
                 
 
             }
+            
+            select.chooseDay{
+                width:180px;
+                height: 30px;
+            }
+            
