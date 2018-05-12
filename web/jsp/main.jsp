@@ -127,7 +127,7 @@
                 
                 <input type="text" name="eventPlace" class="" value="" />
 
-                <input type="datetime" name="eventEndTime" class="" value="" />
+                <input type="datetime-local" name="eventEndTime" class="" value="" />
 
             </div>
             
