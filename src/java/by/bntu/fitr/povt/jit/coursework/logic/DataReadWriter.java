@@ -7,7 +7,10 @@ package by.bntu.fitr.povt.jit.coursework.logic;
 
 import by.bntu.fitr.povt.jit.coursework.model.Activity;
 import by.bntu.fitr.povt.jit.coursework.model.Event;
+import by.bntu.fitr.povt.jit.coursework.model.Place;
 import by.bntu.fitr.povt.jit.coursework.model.Subject;
+import by.bntu.fitr.povt.jit.coursework.model.Teacher;
+import by.bntu.fitr.povt.jit.coursework.model.TimeTable;
 import by.bntu.fitr.povt.jit.coursework.model.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,12 +19,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
  * @author Swyatoslaw
  */
 public class DataReadWriter {
+    
+    private static String ACTIVITY_TYPE_SYBJECT = "subject";
+    private static String ACTIVITY_TYPE_EVENT = "event";
 
     public static boolean addActivity(Activity activity, User user) {
 
@@ -103,7 +110,7 @@ public class DataReadWriter {
                 // , , , , , , , , , , , 
                 //ps.setString(1, user.getLogin());
                 ps.setString(1, user.getLogin());
-                ps.setString(2, "subject");
+                ps.setString(2, ACTIVITY_TYPE_SYBJECT);
                 ps.setString(3, s.getName());
                 ps.setString(4, s.getPlace().getName());
                 ps.setInt(5, s.getDate().get(Calendar.HOUR_OF_DAY));
@@ -140,7 +147,7 @@ public class DataReadWriter {
             Class.forName("com.mysql.jdbc.Driver");
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             try (Connection cn = DriverManager.getConnection(db, "root", "root"); Statement st = cn.createStatement()) {
-                
+
                 PreparedStatement ps = cn.prepareStatement(
                         "INSERT INTO activities(login, activity_type, name, place_name, date_hour, date_minute,"
                         + "week_day, subject_type, subject_year, subject_teacher_name, subject_teacher_status,"
@@ -148,7 +155,7 @@ public class DataReadWriter {
                         + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
                 // , , , , , , , , , , , 
                 ps.setString(1, user.getLogin());
-                ps.setString(2, "event");
+                ps.setString(2, ACTIVITY_TYPE_EVENT);
                 ps.setString(3, s.getName());
                 ps.setString(4, s.getPlace().getName());
                 ps.setInt(5, s.getDate().get(Calendar.HOUR_OF_DAY));
@@ -176,6 +183,56 @@ public class DataReadWriter {
 
             return false;
         }
+    }
+
+    public static boolean readAllUsersActivities(User user) {
+//        user.getTimeTable().add(e)
+        String db = "jdbc:mysql://localhost:3306/accounts";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            try (Connection cn = DriverManager.getConnection(db, "root", "root"); Statement st = cn.createStatement()) {
+
+                ResultSet rs = st.executeQuery("SELECT "
+                        + "activity_type, name, place_name, date_hour, date_minute,"
+                        + "week_day, subject_type, subject_year, subject_teacher_name, subject_teacher_status,"
+                        + "event_year, event_month, event_day, event_hour, event_minute"
+                        + " FROM activities WHERE login='" + user.getLogin() + "'");
+                while (rs.next()) {
+                    if(rs.getString("activity_type").equals(ACTIVITY_TYPE_SYBJECT)){
+                        Subject subject = new Subject(
+                                rs.getInt("subject_year"),
+                                new Teacher(rs.getString("subject_teacher_name"),rs.getString("subject_teacher_status")),
+                                Subject.Type.valueOf(rs.getString("subject_type")),
+                                rs.getString("name"), new Place(rs.getString("place_name")),
+                                new GregorianCalendar(0, 0, 0, rs.getInt("date_hour"), rs.getInt("date_minute")),
+                                Activity.WeekDay.valueOf(rs.getString("week_day")));
+                        user.getTimeTable().add(subject);
+                    }else if(rs.getString("activity_type").equals(ACTIVITY_TYPE_EVENT)){
+                       Event event = new Event();
+                               
+//                                rs.getInt("subject_year"),
+//                                new Teacher(rs.getString("subject_teacher_name"),rs.getString("subject_teacher_status")),
+//                                Subject.Type.valueOf(rs.getString("subject_type")),
+//                                rs.getString("name"), new Place(rs.getString("place_name")),
+//                                new GregorianCalendar(0, 0, 0, rs.getInt("date_hour"), rs.getInt("date_minute")),
+//                                Activity.WeekDay.valueOf(rs.getString("week_day")));
+                        user.getTimeTable().add(event); 
+                    }
+                                     
+                }
+                rs.close();
+                return true;
+
+            }
+        } catch (SQLException ex) {
+
+            return false;
+        } catch (ClassNotFoundException ex) {
+
+            return false;
+        }
+
     }
 
 }
