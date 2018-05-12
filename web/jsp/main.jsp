@@ -52,13 +52,13 @@
                 <p class="layers">Type:</p>
                 <p class="layers">Place:</p>
             </div> 
-            <%--MONDAY,TSUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY --%>
+            <%--MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY --%>
             <div class="inputForm1">
                 <select class="choose" style="width: 80%" name="weekDaySubject">
                     <option value="MONDAY"> Monday</option>
-                    <option value="TSUESDAY"> Tsuesday</option>
+                    <option value="TUESDAY"> Tuesday</option>
                     <option value="WEDNESDAY"> Wednesday</option>
-                    <option value="TSURSDAY"> Tsursday</option>
+                    <option value="THURSDAY"> Thursday</option>
                     <option value="FRIDAY"> Friday</option>
                     <option value="SATURDAY"> Saturday</option>
                     <option value="SUNDAY"> Sunday</option>
@@ -108,13 +108,13 @@
 
             </div> 
 
-            <%--MONDAY,TSUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY --%>
+            <%--MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY --%>
             <div class="inputForm3">
                 <select style="width: 80%" class="choose" name="weekDayEvent">
                     <option value="MONDAY"> Monday</option>
-                    <option value="TSUESDAY"> Tsuesday</option>
+                    <option value="TUESDAY"> Tuesday</option>
                     <option value="WEDNESDAY"> Wednesday</option>
-                    <option value="TSURSDAY"> Tsursday</option>
+                    <option value="THURSDAY"> Thursday</option>
                     <option value="FRIDAY"> Friday</option>
                     <option value="SATURDAY"> Saturday</option>
                     <option value="SUNDAY"> Sunday</option>
@@ -139,9 +139,9 @@
             <div class="inputFormDelete">
                 <select style="width: 100%" class="choose" name="weekDayDelete">
                     <option value="MONDAY"> Monday</option>
-                    <option value="TSUESDAY"> Tsuesday</option>
+                    <option value="TUESDAY"> Tuesday</option>
                     <option value="WEDNESDAY"> Wednesday</option>
-                    <option value="TSURSDAY"> Tsursday</option>
+                    <option value="THURSDAY"> Thursday</option>
                     <option value="FRIDAY"> Friday</option>
                     <option value="SATURDAY"> Saturday</option>
                     <option value="SUNDAY"> Sunday</option>
@@ -155,7 +155,7 @@
 
                 <table class="table table-striped " >
                     <%--c:forEach var="i"  begin="1" end="5" --%>
-                    <c:forTokens items = "MONDAY,TSUESDAY,WEDNESDAY,TSURSDAY,FRIDAY,SATURDAY,SUNDAY" delims = "," var = "weekday">
+                    <c:forTokens items = "MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY" delims = "," var = "weekday">
 
 
                         <thead> 
