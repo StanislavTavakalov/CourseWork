@@ -26,7 +26,6 @@ public class Event extends Activity {
         this.endTime = endTime;
     }
 
-    
     public Event(int count, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
         super(name, place, date, weekDay);
 
@@ -51,12 +50,13 @@ public class Event extends Activity {
 
     @Override
     public String toString() {
-        return "Event{" + "name=" + getName() + ", place=" + getPlace() +
-                ", date=" + getDate() + ", weekDay=" + getWeekDay() + ", endTime=" + endTime + '}';
+        return "Event{" + "name=" + getName() + ", place=" + getPlace()
+                + ", date=" + getDate() + ", weekDay=" + getWeekDay() + ", endTime=" + endTime + '}';
     }
 
     @Override
     public String getInfo() {
-        return endTime.toString();
+        return endTime.get(Calendar.DAY_OF_MONTH) + "." + endTime.get(Calendar.MONTH) + "." + endTime.get(Calendar.YEAR);
+
     }
 }
