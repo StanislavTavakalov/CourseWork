@@ -18,7 +18,7 @@
             <div class="buttonDelete">
                 <button type="submit" class="btn btn-primary btn-block btn-large ">Delete user</button>
             </div>
-            
+
             <div class="inputLayerDelete">
                 <p class="layers">Login:</p>
             </div> 
@@ -26,37 +26,37 @@
             <div class="inputFormDelete">
                 <input type="text" style="width: 100%" name="deleteUser" class="" value="" />
             </div>
-            
+
             <div class="inputLayerTable">
                 <p class="layers">User list:</p>
             </div> 
-            
+
         </form>
-        
-        
+
+
         <form name="backToMainAdminForm" method="POST" action="controller">
             <input type="hidden" name="command" value="tomainadminpage" />    
             <div class="buttonBack">
                 <button type="submit" class="btn btn-primary btn-block btn-large ">Back</button>
             </div>
         </form>
-        
-        
+
+
 
         <div class="loginlist additonal layer">
 
             <table class="table table-striped ">
-
+                <thead> 
+                <td style="text-align: center" colspan="4" > Login </td>
+                </thead>
                 <tbody>
-                    <tr>
-                        <td width="23%"> Login </td>
-                    </tr>
                     <c:forEach items= "${userLoginList.iterator()}" var="login" >
-                                <tr>
-                                    <th> ${login} </th>
-                                </tr>
-                            
-                        </c:forEach>
+                        <c:if test="${login!=admin}"> 
+                            <tr>
+                                <th> ${login} </th>
+                            </tr>
+                        </c:if>
+                    </c:forEach>
 
                 </tbody>
             </table>

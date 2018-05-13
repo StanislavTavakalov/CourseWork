@@ -17,6 +17,7 @@ public class ToAdministrationPageCommand implements
 
     @Override
     public String execute(HttpServletRequest request) {
+        request.setAttribute("admin", "admin");
         String page = ConfigurationManager.getProperty("path.page.administration");
         return page;
     }
