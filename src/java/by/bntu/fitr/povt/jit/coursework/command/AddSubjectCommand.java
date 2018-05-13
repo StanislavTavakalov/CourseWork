@@ -9,6 +9,8 @@ import by.bntu.fitr.povt.jit.coursework.model.Subject;
 import by.bntu.fitr.povt.jit.coursework.model.Teacher;
 import by.bntu.fitr.povt.jit.coursework.model.TimeTable;
 import by.bntu.fitr.povt.jit.coursework.model.User;
+import by.bntu.fitr.povt.jit.coursework.model.sort.ActivitySortType;
+import by.bntu.fitr.povt.jit.coursework.model.sort.ActivitySorter;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import by.bntu.fitr.povt.jit.coursework.resource.MessageManager;
 import java.util.GregorianCalendar;
@@ -67,12 +69,13 @@ public class AddSubjectCommand implements ActionCommand {
                             hour, minute,
                             Activity.WeekDay.valueOf(weekDay)),
                     ((User) (request.getSession().getAttribute("user"))));
-            
+
             ((User) (request.getSession().getAttribute("user"))).getTimeTable().add(new Subject(Integer.parseInt(year),
                     new Teacher(teacherName, teacherStatus),
                     Subject.Type.valueOf(type), name, new Place(placeName),
                     hour, minute,
                     Activity.WeekDay.valueOf(weekDay)));
+            ActivitySorter.sort(((User) (request.getSession().getAttribute("user"))).getTimeTable(), ActivitySortType.TIME_ASC);
 
         } catch (Exception ex) {
             System.out.println(ex);
