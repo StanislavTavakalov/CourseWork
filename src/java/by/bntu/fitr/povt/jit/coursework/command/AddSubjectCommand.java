@@ -30,11 +30,11 @@ public class AddSubjectCommand implements ActionCommand {
     private static final String PARAM_SUBJECT_PLACE_NAME = "subjectPlace";
     private static final String PARAM_SUBJECT_TEACHER_NAME = "teacherName";
     private static final String PARAM_SUBJECT_TEACHER_STATUS = "teacherStatus";
-    private static final String PARAM_EVENT_DAY = "weekDayEvent";
-    private static final String PARAM_EVENT_NAME = "eventName";
-    private static final String PARAM_EVENT_TIME = "eventTime";
-    private static final String PARAM_EVENT_PLACE = "eventPlace";
-    private static final String PARAM_EVENT_END_TIME = "eventEndTime";
+//    private static final String PARAM_EVENT_DAY = "weekDayEvent";
+//    private static final String PARAM_EVENT_NAME = "eventName";
+//    private static final String PARAM_EVENT_TIME = "eventTime";
+//    private static final String PARAM_EVENT_PLACE = "eventPlace";
+//    private static final String PARAM_EVENT_END_TIME = "eventEndTime";
     //private static final String PARAM_NAME_PASSWORD  = "password";
 
     public static void testFun(TimeTable timeTable) {
@@ -85,7 +85,7 @@ public class AddSubjectCommand implements ActionCommand {
         //System.out.print(request.getParameterNames());
         //System.out.println(request.getParameter(PARAM_NAME_DAY));
         //System.out.println(request.getParameter("testtime"));
-        page = ConfigurationManager.getProperty("path.page.main");
+        //page = ConfigurationManager.getProperty("path.page.main");
 
 //            ArrayList<String> list = new ArrayList();
 //            

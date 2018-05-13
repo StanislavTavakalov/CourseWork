@@ -15,7 +15,8 @@ import java.util.function.Consumer;
  *
  * @author Dima_T
  */
-public class TimeTable implements Iterable<Activity>{
+public class TimeTable implements Iterable<Activity> {
+
     private List<Activity> activities;
 
     public TimeTable(List<Activity> activities) {
@@ -34,7 +35,6 @@ public class TimeTable implements Iterable<Activity>{
         this.activities = new ArrayList<>();
     }
 
-    
     public int size() {
         return activities.size();
     }
@@ -53,9 +53,9 @@ public class TimeTable implements Iterable<Activity>{
     }
 
     public void sort(Comparator<? super Activity> c) {
-        activities.sort(c); 
+        activities.sort(c);
     }
-    
+
     public Activity remove(int index) {
         return activities.remove(index);
     }
@@ -70,7 +70,13 @@ public class TimeTable implements Iterable<Activity>{
     public String toString() {
         return "TimeTable{" + "activities=" + activities + '}';
     }
-    
-    
+
+    public boolean remove(Activity o) {
+        return activities.remove(o);
+    }
+
+    public Activity get(int index){
+        return activities.get(index);
+    }
     
 }

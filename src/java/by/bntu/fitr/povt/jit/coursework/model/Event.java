@@ -18,10 +18,27 @@ public class Event extends Activity {
 
     @Override
     public boolean check() {
-        if(endTime.getTimeInMillis() - new GregorianCalendar().getTimeInMillis() < 0){
+        GregorianCalendar now = new GregorianCalendar();
+        if (endTime.get(Calendar.YEAR) < now.get(Calendar.YEAR)) {
+            return false;
+        } else if (endTime.get(Calendar.YEAR) == now.get(Calendar.YEAR)
+                && endTime.get(Calendar.MONTH) < now.get(Calendar.MONTH)) {
+            return false;
+        } else if (endTime.get(Calendar.YEAR) == now.get(Calendar.YEAR)
+                && endTime.get(Calendar.MONTH) == now.get(Calendar.MONTH)
+                && endTime.get(Calendar.DAY_OF_MONTH) < now.get(Calendar.DAY_OF_MONTH)) {
+            return false;
+        } else if (endTime.get(Calendar.YEAR) == now.get(Calendar.YEAR)
+                && endTime.get(Calendar.MONTH) == now.get(Calendar.MONTH)
+                && endTime.get(Calendar.DAY_OF_MONTH) == now.get(Calendar.DAY_OF_MONTH)
+                && endTime.get(Calendar.HOUR_OF_DAY) * 60 + endTime.get(Calendar.MINUTE) < now.get(Calendar.HOUR_OF_DAY) * 60 + now.get(Calendar.MINUTE)) {
             return false;
         }
         return true;
+//        if(endTime.getTimeInMillis() - new GregorianCalendar().getTimeInMillis() < 0){
+//            return false;
+//        }
+//        return true;
     }
 
     public Event(GregorianCalendar endTime, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
@@ -64,7 +81,7 @@ public class Event extends Activity {
 
     @Override
     public String getInfo() {
-        return endTime.get(Calendar.DAY_OF_MONTH) + "." + (endTime.get(Calendar.MONTH)+1) + "." + endTime.get(Calendar.YEAR);
+        return endTime.get(Calendar.DAY_OF_MONTH) + "." + (endTime.get(Calendar.MONTH) + 1) + "." + endTime.get(Calendar.YEAR);
 
     }
 }
