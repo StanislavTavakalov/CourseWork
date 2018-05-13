@@ -81,7 +81,7 @@ public class Subject extends Activity{
     
     @Override
     public String getInfo() {
-        return teacher.getStatus() + " " + teacher.getName() + " / " + (year-1) + "-" + year;
+        return teacher.getStatus() + " " + teacher.getName() + ", " + type + " / " + (year-1) + "-" + year;
     }
     
     @Override
