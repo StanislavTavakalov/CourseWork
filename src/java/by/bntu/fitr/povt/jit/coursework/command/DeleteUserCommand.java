@@ -6,6 +6,7 @@
 package by.bntu.fitr.povt.jit.coursework.command;
 
 import by.bntu.fitr.povt.jit.coursework.logic.DataReadWriter;
+import by.bntu.fitr.povt.jit.coursework.model.User;
 import by.bntu.fitr.povt.jit.coursework.model.UserLoginList;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import javax.servlet.http.HttpServletRequest;
@@ -20,11 +21,13 @@ public class DeleteUserCommand implements ActionCommand {
     
     @Override
     public String execute(HttpServletRequest request) {
-        
+        request.setAttribute("admin", ((User) (request.getSession().getAttribute("user"))).getLogin());
         try{
             String userLogin = request.getParameter(PARAM_DELETE_USER);
+            if(!userLogin.equals(((User) (request.getSession().getAttribute("user"))).getLogin())){
             DataReadWriter.deleteUserAndHisActivity(userLogin);
             ((UserLoginList) (request.getSession().getAttribute("userLoginList"))).remove(userLogin);
+            }
         }
         
         catch(Exception ex){
