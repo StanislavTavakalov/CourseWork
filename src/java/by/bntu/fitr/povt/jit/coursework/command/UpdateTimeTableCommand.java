@@ -24,7 +24,15 @@ public class UpdateTimeTableCommand implements ActionCommand{
         }catch(Exception ex){
             System.out.println(ex);
         }
-        String page = ConfigurationManager.getProperty("path.page.main");
+        String page;
+        
+        if(((User) (request.getSession().getAttribute("user"))).getRole()==User.Role.ADMIN)
+             page = ConfigurationManager.getProperty("path.page.mainadmin");
+        
+        else{
+            page = ConfigurationManager.getProperty("path.page.main");
+        }
+        
         return page;
     }
     
