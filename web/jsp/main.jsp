@@ -175,16 +175,23 @@
 
         <div class="container additonal layer" style="margin-top:300px" >
 
-            <table class="table table-striped " >
+            <table class="table table-striped ">
                 <%--c:forEach var="i"  begin="1" end="5" --%>
                 <c:forTokens items = "MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY" delims = "," var = "weekday">
 
 
                     <thead> 
                     <td style="text-align: center" colspan="4" > ${weekday} </td>
+                    
                     </thead>
 
                     <tbody>
+                        <tr>
+                            <td width="23%"> Time </td>
+                            <td width="23%"> Name </td>
+                            <td width="23%"> Place</td>
+                            <td width="31%"> Additional information</td>
+                        </tr>
                         <c:forEach items= "${user.timeTable.activities}" var="item" >
                             <c:if test="${item.weekDay.toString()==weekday}"> 
                                 <tr>
