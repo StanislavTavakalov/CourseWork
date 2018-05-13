@@ -5,10 +5,37 @@
  */
 package by.bntu.fitr.povt.jit.coursework.command;
 
+import by.bntu.fitr.povt.jit.coursework.logic.DataReadWriter;
+import by.bntu.fitr.povt.jit.coursework.model.UserLoginList;
+import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
+import javax.servlet.http.HttpServletRequest;
+
 /**
  *
  * @author Dima_T
  */
-public class DeleteUserCommand {
+public class DeleteUserCommand implements ActionCommand {
+    private static final String PARAM_DELETE_USER = "deleteUser";
+    //private static final String PARAM_EVENT_NAME = "eventName";
     
+    @Override
+    public String execute(HttpServletRequest request) {
+        
+        try{
+            String userLogin = request.getParameter(PARAM_DELETE_USER);
+            DataReadWriter.deleteUserAndHisActivity(userLogin);
+            ((UserLoginList) (request.getSession().getAttribute("userLoginList"))).remove(userLogin);
+        }
+        
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        
+        
+        String page = ConfigurationManager.getProperty("path.page.administration");
+        
+        
+        //  request.getSession().invalidate();
+        return page;
+    }
 }

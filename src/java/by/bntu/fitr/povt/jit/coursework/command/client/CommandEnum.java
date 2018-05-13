@@ -4,6 +4,7 @@ import by.bntu.fitr.povt.jit.coursework.command.ActionCommand;
 import by.bntu.fitr.povt.jit.coursework.command.AddEventCommand;
 import by.bntu.fitr.povt.jit.coursework.command.AddSubjectCommand;
 import by.bntu.fitr.povt.jit.coursework.command.DeleteActivityCommand;
+import by.bntu.fitr.povt.jit.coursework.command.DeleteUserCommand;
 import by.bntu.fitr.povt.jit.coursework.command.LoginCommand;
 import by.bntu.fitr.povt.jit.coursework.command.LogoutCommand;
 import by.bntu.fitr.povt.jit.coursework.command.RegisterCommand;
@@ -23,55 +24,53 @@ public enum CommandEnum {
             this.command = new LogoutCommand();
         }
     },
-    
     REGISTER {
         {
             this.command = new RegisterCommand();
         }
     },
-    
     TOREGISTERPAGE {
         {
             this.command = new ToRegisterPageCommand();
         }
     },
-    
-     ADDSUBJECT {
+    ADDSUBJECT {
         {
             this.command = new AddSubjectCommand();
         }
-     },
-     ADDEVENT {
+    },
+    ADDEVENT {
         {
             this.command = new AddEventCommand();
         }
     },
-     
-      DELETEACTIVITY {
+    DELETEACTIVITY {
         {
             this.command = new DeleteActivityCommand();
         }
     },
-      
-       UPDATETIMETABLE {
+    UPDATETIMETABLE {
         {
             this.command = new UpdateTimeTableCommand();
         }
     },
-       
-     TOADMINISTRATIONPAGE {
+    TOADMINISTRATIONPAGE {
         {
             this.command = new ToAdministrationPageCommand();
         }
     },
-     
-      TOMAINADMINPAGE {
+    TOMAINADMINPAGE {
         {
             this.command = new ToMainAdminPageCommand();
         }
-    };
-       
+    },
     
+    DELETEUSER {
+        {
+            this.command = new DeleteUserCommand();
+        }
+    };
+
     ActionCommand command;
 
     public ActionCommand getCurrentCommand() {
