@@ -9,6 +9,8 @@ import by.bntu.fitr.povt.jit.coursework.model.Subject;
 import by.bntu.fitr.povt.jit.coursework.model.Teacher;
 import by.bntu.fitr.povt.jit.coursework.model.TimeTable;
 import by.bntu.fitr.povt.jit.coursework.model.User;
+import by.bntu.fitr.povt.jit.coursework.model.sort.ActivitySortType;
+import by.bntu.fitr.povt.jit.coursework.model.sort.ActivitySorter;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import by.bntu.fitr.povt.jit.coursework.resource.MessageManager;
 import java.util.GregorianCalendar;
@@ -51,6 +53,7 @@ public class AddEventCommand implements ActionCommand {
             ((User) (request.getSession().getAttribute("user"))).getTimeTable().add(new Event(year, month - 1, day, hour, minute, name,
                     new Place(placeName), timeHour, timeMinute,
                     Activity.WeekDay.valueOf(weekDay)));
+            ActivitySorter.sort(((User) (request.getSession().getAttribute("user"))).getTimeTable(), ActivitySortType.TIME_ASC);
 
         } catch (Exception ex) {
             System.out.println(ex);
