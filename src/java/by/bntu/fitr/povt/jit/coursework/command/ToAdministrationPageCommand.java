@@ -18,8 +18,6 @@ public class ToAdministrationPageCommand implements
     @Override
     public String execute(HttpServletRequest request) {
         String page = ConfigurationManager.getProperty("path.page.administration");
-
-      //  request.getSession().invalidate();
         return page;
     }
 }

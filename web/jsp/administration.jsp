@@ -49,11 +49,14 @@
 
                 <tbody>
                     <tr>
-                        <td width="23%"> Time </td>
-                        <td width="23%"> Name </td>
-                        <td width="23%"> Place</td>
-                        <td width="31%"> Additional information</td>
+                        <td width="23%"> Login </td>
                     </tr>
+                    <c:forEach items= "${userLoginList.iterator()}" var="login" >
+                                <tr>
+                                    <th> ${login} </th>
+                                </tr>
+                            
+                        </c:forEach>
 
                 </tbody>
             </table>
