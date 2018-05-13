@@ -256,59 +256,22 @@ public class DataReadWriter {
             Class.forName("com.mysql.jdbc.Driver");
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             try (Connection cn = DriverManager.getConnection(db, "root", "root"); Statement st = cn.createStatement()) {
-                System.out.println("START DOING");
                
                 PreparedStatement ps = cn.prepareStatement(
                         "DELETE FROM activities where login='" + user.getLogin() + "'"
-                                + " and name LIKE '" + s.getName()+ "' ESCAPE '#'" 
-                                + " and place_name LIKE '" + s.getPlace().getName() + "' ESCAPE '#'" 
-                                + " and date_hour='" + s.getDate().get(Calendar.HOUR)+ "'" 
+                                + " and name='" + s.getName()+ "'" 
+                                + " and place_name='" + s.getPlace().getName() + "'" 
+                                + " and date_hour='" + s.getDate().get(Calendar.HOUR_OF_DAY)+ "'" 
                                 + " and date_minute='" + s.getDate().get(Calendar.MINUTE) + "'"
-                                + " and week_day LIKE '" + s.getWeekDay().toString() + "' ESCAPE '#'"
+                                + " and week_day='" + s.getWeekDay().toString() + "'"
                                 + " and event_year='" + s.getEndTime().get(Calendar.YEAR) + "'" 
                                 + " and event_month='" + s.getEndTime().get(Calendar.MONTH) + "'"
                                 + " and event_day='" + s.getEndTime().get(Calendar.DAY_OF_MONTH) + "'"
                                 + " and event_hour='" + s.getEndTime().get(Calendar.HOUR_OF_DAY) + "'"
                                 + " and event_minute='" + s.getEndTime().get(Calendar.MINUTE) + "'");
-//                PreparedStatement ps = cn.prepareStatement(
-//                        "DELETE FROM activities where login='" + user.getLogin() + "'"
-//                                + " and name='" + s.getName()+ "'" 
-//                                + " and place_name='" + s.getPlace().getName() + "'" 
-//                                + " and date_hour='" + s.getDate().get(Calendar.HOUR)+ "'" 
-//                                + " and date_minute='" + s.getDate().get(Calendar.MINUTE) + "'"
-//                                + " and week_day='" + s.getWeekDay().toString() + "'"
-//                                + " and event_year='" + s.getEndTime().get(Calendar.YEAR) + "'" 
-//                                + " and event_month='" + s.getEndTime().get(Calendar.MONTH) + "'"
-//                                + " and event_day='" + s.getEndTime().get(Calendar.DAY_OF_MONTH) + "'"
-//                                + " and event_hour='" + s.getEndTime().get(Calendar.HOUR_OF_DAY) + "'"
-//                                + " and event_minute='" + s.getEndTime().get(Calendar.MINUTE) + "'");
                 
-//                PreparedStatement ps = cn.prepareStatement("DELETE FROM activities where login='" + "?" + "'"
-//                                + " and name='" + "?"+ "'" 
-//                                + " and place_name='" + "?" + "'"
-//                                +" and date_hour='" + "?"+ "'" 
-//                                + " and date_minute='" + "?" + "'"
-//                                + " and week_day='" + "?" + "'"
-//                                + " and event_year='" + "?" + "'" 
-//                                + " and event_month='" + "?" + "'"
-//                                + " and event_day='" + "?" + "'"
-//                                + " and event_hour='" + "?" + "'"
-//                                + " and event_minute='" + "?" + "'");
-//                
-//                ps.setString(1, user.getLogin());
-//                ps.setString(2, s.getName());
-//                ps.setString(3, s.getPlace().getName());
-//                ps.setInt(4, s.getDate().get(Calendar.HOUR_OF_DAY));
-//                ps.setInt(5, s.getDate().get(Calendar.MINUTE));
-//                ps.setString(6, s.getWeekDay().toString());
-//                ps.setInt(7, s.getEndTime().get(Calendar.YEAR));
-//                ps.setInt(8, s.getEndTime().get(Calendar.MONTH));
-//                ps.setInt(9, s.getEndTime().get(Calendar.DAY_OF_MONTH));
-//                ps.setInt(10, s.getEndTime().get(Calendar.HOUR_OF_DAY));
-//                ps.setInt(11, s.getEndTime().get(Calendar.MINUTE));
                 
                 ps.executeUpdate();
-                System.out.print("All Done!");
                 return true;
 
             }
@@ -329,9 +292,8 @@ public class DataReadWriter {
             Class.forName("com.mysql.jdbc.Driver");
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             try (Connection cn = DriverManager.getConnection(db, "root", "root"); Statement st = cn.createStatement()) {
-                  System.out.println("START DOING2");
                   PreparedStatement ps = cn.prepareStatement("DELETE FROM activities where login='" + user.getLogin() + "'" +" and name='" + s.getName()+ "'" 
-                                + " and place_name='" + s.getPlace().getName() + "'" +" and date_hour='" + s.getDate().get(Calendar.HOUR)+ "'" 
+                                + " and place_name='" + s.getPlace().getName() + "'" +" and date_hour='" + s.getDate().get(Calendar.HOUR_OF_DAY)+ "'" 
                                 + " and date_minute='" + s.getDate().get(Calendar.MINUTE) + "'"+ " and week_day='" + s.getWeekDay().toString() + "'"
                                 + " and subject_type='" + s.getType().toString() + "'" 
                                 + " and subject_year='" + s.getYear() + "'"

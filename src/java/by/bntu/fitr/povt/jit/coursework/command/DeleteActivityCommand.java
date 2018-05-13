@@ -24,21 +24,21 @@ public class DeleteActivityCommand implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
         String page = null;
-        System.out.println("Start");
+        
         try {
         int index = Integer.parseUnsignedInt(request.getParameter(PARAM_DELETE_INDEX));
         String weekDay = request.getParameter(PARAM_WEEK_DAY_DELETE);
         index--; //X
        
             int indexOfElementToDelete = -1;
-            //((User)(request.getSession().getAttribute("user"))).getTimeTable()
+    
             for (Activity activity : ((User) (request.getSession().getAttribute("user"))).getTimeTable()) {
                 indexOfElementToDelete++;
                 if (activity.getWeekDay().equals(Activity.WeekDay.valueOf(weekDay))) {
                     if (index != 0) {
                         index--;
                     } else {
-                        System.out.println("DONE BEFORE BASE");
+                        
                         DataReadWriter.deleteActivity(((User) (request.getSession().getAttribute("user"))).getTimeTable().remove(indexOfElementToDelete), (User) (request.getSession().getAttribute("user")));
                     }
                 }
@@ -49,8 +49,7 @@ public class DeleteActivityCommand implements ActionCommand {
         }
         
          page = ConfigurationManager.getProperty("path.page.main");
-// уничтожение сессии
-//      request.getSession().invalidate();
+
         return page;
     }
 
