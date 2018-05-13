@@ -7,6 +7,7 @@ import by.bntu.fitr.povt.jit.coursework.command.DeleteActivityCommand;
 import by.bntu.fitr.povt.jit.coursework.command.LoginCommand;
 import by.bntu.fitr.povt.jit.coursework.command.LogoutCommand;
 import by.bntu.fitr.povt.jit.coursework.command.RegisterCommand;
+import by.bntu.fitr.povt.jit.coursework.command.ToAdministrationPageCommand;
 import by.bntu.fitr.povt.jit.coursework.command.ToRegisterPageCommand;
 import by.bntu.fitr.povt.jit.coursework.command.UpdateTimeTableCommand;
 
@@ -55,7 +56,14 @@ public enum CommandEnum {
         {
             this.command = new UpdateTimeTableCommand();
         }
+    },
+       
+     TOADMINISTRATIONPAGE {
+        {
+            this.command = new ToAdministrationPageCommand();
+        }
     };
+       
     
     ActionCommand command;
 

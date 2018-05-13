@@ -1,0 +1,121 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 10, 2018, 9:39:45 PM
+    Author     : Dima_T
+*/
+
+   table.profile {
+                width: 12%; /* Ширина таблицы */
+                color: #ffff00; /* Цвет текста */
+
+            }
+            td.profile1{
+                padding: 5px; /* Поля вокруг текста */
+            }
+            th.profile2{
+                padding: 5px; /* Поля вокруг текста */
+            }
+            div.additonal{
+                padding:0px; 
+                background-color: white;
+            }
+
+        
+            .button1
+            {
+                width: 150px;
+                height: 30px;
+                right: 740px;
+                top:200px;
+                position: absolute;
+                
+            }
+
+           
+            
+            .inputLayer1
+            {
+                width: 100px;
+                height: 180px;
+                right: 980px;
+                top:20px;
+                position: absolute;
+            
+            }
+            
+           
+            
+            .layers{
+                padding-bottom: 4px;
+                color: yellow;
+            }
+
+           
+            
+            .loginlist{
+              
+                left: 20%;
+                top:45%;
+                position: absolute;  
+                
+            }
+            
+              .layer {
+                overflow: scroll; /* Добавляем полосы прокрутки */
+                width: 520px; /* Ширина блока */
+                height: 350px; /* Высота блока */
+                padding: 5px; /* Поля вокруг текста */
+                border: solid 1px black; /* Параметры рамки */
+            } 
+            
+             .buttonDelete
+            {
+                width: 200px;
+                height: 30px;
+                left: 60%;
+                top:45%;
+                position: absolute;
+
+            }
+            
+             .buttonBack
+            {
+                width: 200px;
+                height: 30px;
+                left: 60%;
+                top:55%;
+                position: absolute;
+
+            }
+            
+             .inputFormDelete{
+                width: 128px;
+                height: 80px;
+                left: 65%;
+                top:50%;
+                position: absolute;  
+            }
+            
+             .inputLayerDelete
+            {
+                width: 100px;
+                height: 110px;
+                left: 60%;
+                top:50%;
+                position: absolute;
+           
+            }
+            
+             .inputLayerTable
+            {
+                width: 100px;
+                height: 110px;
+                left: 20%;
+                top:40%;
+                position: absolute;
+           
+            }

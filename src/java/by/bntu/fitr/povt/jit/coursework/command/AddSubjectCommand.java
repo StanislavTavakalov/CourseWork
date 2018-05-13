@@ -102,10 +102,13 @@ public class AddSubjectCommand implements ActionCommand {
 //          new GregorianCalendar(2018, 5, 10, 18, 50), Activity.WeekDay.MONDAY), "a");
 //  DataReadWriter.addActivity("a","subject","math","bntu",12,40,"monday",
 //                "lecture",2018,"teacher","docent",0,0,0,0,0 );
-        page = ConfigurationManager.getProperty("path.page.main");
-//            request.setAttribute("errorLoginPassMessage",MessageManager.getProperty("message.loginerror"));
-//            page = ConfigurationManager.getProperty("path.page.login");
-//        }
+      if(((User) (request.getSession().getAttribute("user"))).getRole()==User.Role.ADMIN)
+             page = ConfigurationManager.getProperty("path.page.mainadmin");
+        
+        else{
+            page = ConfigurationManager.getProperty("path.page.main");
+        }
+      
         return page;
     }
 }

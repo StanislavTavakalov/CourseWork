@@ -48,8 +48,12 @@ public class DeleteActivityCommand implements ActionCommand {
             System.out.print(ex);
         }
         
-         page = ConfigurationManager.getProperty("path.page.main");
-
+        if(((User) (request.getSession().getAttribute("user"))).getRole()==User.Role.ADMIN)
+             page = ConfigurationManager.getProperty("path.page.mainadmin");
+        
+        else{
+            page = ConfigurationManager.getProperty("path.page.main");
+        }
         return page;
     }
 

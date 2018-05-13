@@ -38,7 +38,14 @@ public class LoginCommand implements ActionCommand {
         if (LoginLogic.checkLogin(login, pass)) {
             //TimeTable timeTable = ;
             //testFun(timeTable);
-            User user = new  User(login,pass,User.Role.USER,new TimeTable());
+            User user;
+            if (login.equals("admin")) {
+                user = new User(login, pass, User.Role.ADMIN, new TimeTable());
+            } else {
+                user = new User(login, pass, User.Role.USER, new TimeTable());
+            }
+
+            //User user = new  User(login,pass,User.Role.USER,new TimeTable());
             DataReadWriter.readAllUsersActivities(user);
             ActivityInspector.checkAndRemove(user);
             ActivitySorter.sort(user.getTimeTable(), ActivitySortType.TIME_ASC);
@@ -52,7 +59,12 @@ public class LoginCommand implements ActionCommand {
 //            request.setAttribute("list",list);
             
 // определение пути к main.jsp
-            page = ConfigurationManager.getProperty("path.page.main");
+             if (user.getRole() == User.Role.ADMIN) {
+                page = ConfigurationManager.getProperty("path.page.mainadmin");
+            } else {
+                page = ConfigurationManager.getProperty("path.page.main");
+            }
+            
         } else {
             request.setAttribute("errorLoginPassMessage",MessageManager.getProperty("message.loginerror"));
             page = ConfigurationManager.getProperty("path.page.login");
@@ -61,3 +73,10 @@ public class LoginCommand implements ActionCommand {
     }
 }
 
+
+
+          
+            
+           
+            
+      

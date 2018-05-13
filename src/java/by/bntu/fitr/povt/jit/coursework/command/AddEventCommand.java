@@ -58,7 +58,13 @@ public class AddEventCommand implements ActionCommand {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        page = ConfigurationManager.getProperty("path.page.main");
+        if(((User) (request.getSession().getAttribute("user"))).getRole()==User.Role.ADMIN)
+             page = ConfigurationManager.getProperty("path.page.mainadmin");
+        
+        else{
+            page = ConfigurationManager.getProperty("path.page.main");
+        }
+             
         return page;
     }
 }
