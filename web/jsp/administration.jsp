@@ -35,7 +35,7 @@
         
         
         <form name="backToMainAdminForm" method="POST" action="controller">
-            <input type="hidden" name="command" value="toadministrationpage" />    
+            <input type="hidden" name="command" value="tomainadminpage" />    
             <div class="buttonBack">
                 <button type="submit" class="btn btn-primary btn-block btn-large ">Back</button>
             </div>
