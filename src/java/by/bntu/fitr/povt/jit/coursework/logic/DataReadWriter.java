@@ -343,6 +343,11 @@ public class DataReadWriter {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             try (Connection cn = DriverManager.getConnection(db, "root", "root"); Statement st = cn.createStatement()) {
 
+                ResultSet rs = st.executeQuery("select name from accounts where name='" + userLogin + "'");
+                if(!rs.next()){
+                    return false;
+                }
+                
                 PreparedStatement ps = cn.prepareStatement(
                         "DELETE FROM accounts WHERE name='" + userLogin + "'");
 
