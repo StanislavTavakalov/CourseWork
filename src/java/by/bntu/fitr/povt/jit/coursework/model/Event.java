@@ -31,7 +31,7 @@ public class Event extends Activity {
         } else if (endTime.get(Calendar.YEAR) == now.get(Calendar.YEAR)
                 && endTime.get(Calendar.MONTH) == now.get(Calendar.MONTH)
                 && endTime.get(Calendar.DAY_OF_MONTH) == now.get(Calendar.DAY_OF_MONTH)
-                && endTime.get(Calendar.HOUR_OF_DAY) * 60 + endTime.get(Calendar.MINUTE) < now.get(Calendar.HOUR_OF_DAY) * 60 + now.get(Calendar.MINUTE)) {
+                && endTime.get(Calendar.HOUR_OF_DAY) * 60 + endTime.get(Calendar.MINUTE) <= now.get(Calendar.HOUR_OF_DAY) * 60 + now.get(Calendar.MINUTE)) {
             return false;
         }
         return true;
@@ -81,7 +81,9 @@ public class Event extends Activity {
 
     @Override
     public String getInfo() {
-        return endTime.get(Calendar.DAY_OF_MONTH) + "." + (endTime.get(Calendar.MONTH) + 1) + "." + endTime.get(Calendar.YEAR);
+        return endTime.get(Calendar.DAY_OF_MONTH) + "." + (endTime.get(Calendar.MONTH) + 1) 
+                + "." + endTime.get(Calendar.YEAR) + " " + endTime.get(Calendar.HOUR_OF_DAY)
+                + ":" + endTime.get(Calendar.MINUTE);
 
     }
 }
