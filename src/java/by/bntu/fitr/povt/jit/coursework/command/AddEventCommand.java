@@ -21,7 +21,7 @@ public class AddEventCommand implements ActionCommand {
     private static final String PARAM_EVENT_TIME = "eventTime";
     private static final String PARAM_EVENT_PLACE = "eventPlace";
     private static final String PARAM_EVENT_END_DATE_TIME = "eventEndTime";
- 
+
     @Override
     public String execute(HttpServletRequest request) {
         String page = null;
@@ -33,20 +33,24 @@ public class AddEventCommand implements ActionCommand {
             String placeName = request.getParameter(PARAM_EVENT_PLACE);
             String endDateTime = request.getParameter(PARAM_EVENT_END_DATE_TIME);
 
-            int year = Integer.parseUnsignedInt(endDateTime.substring(0,4));
-            int month = Integer.parseUnsignedInt(endDateTime.substring(5,7));
-            int day = Integer.parseUnsignedInt(endDateTime.substring(8,10));
-            int hour = Integer.parseUnsignedInt(endDateTime.substring(11,13));
+            int year = Integer.parseUnsignedInt(endDateTime.substring(0, 4));
+            int month = Integer.parseUnsignedInt(endDateTime.substring(5, 7));
+            int day = Integer.parseUnsignedInt(endDateTime.substring(8, 10));
+            int hour = Integer.parseUnsignedInt(endDateTime.substring(11, 13));
             int minute = Integer.parseUnsignedInt(endDateTime.substring(14));
-            
+
             int timeHour = Integer.parseUnsignedInt(time.substring(0, 2));
             int timeMinute = Integer.parseUnsignedInt(time.substring(3));
 
             DataReadWriter.addActivity(
-                    new Event(year, month-1, day, hour, minute, name,
+                    new Event(year, month - 1, day, hour, minute, name,
                             new Place(placeName), timeHour, timeMinute,
                             Activity.WeekDay.valueOf(weekDay)),
                     ((User) (request.getSession().getAttribute("user"))));
+
+            ((User) (request.getSession().getAttribute("user"))).getTimeTable().add(new Event(year, month - 1, day, hour, minute, name,
+                    new Place(placeName), timeHour, timeMinute,
+                    Activity.WeekDay.valueOf(weekDay)));
 
         } catch (Exception ex) {
             System.out.println(ex);

@@ -60,7 +60,6 @@ public class AddSubjectCommand implements ActionCommand {
             int minute = Integer.parseUnsignedInt(time.substring(3));
             //System.out.println(minute);
 
-       
             DataReadWriter.addActivity(
                     new Subject(Integer.parseInt(year),
                             new Teacher(teacherName, teacherStatus),
@@ -69,6 +68,11 @@ public class AddSubjectCommand implements ActionCommand {
                             Activity.WeekDay.valueOf(weekDay)),
                     ((User) (request.getSession().getAttribute("user"))));
             
+            ((User) (request.getSession().getAttribute("user"))).getTimeTable().add(new Subject(Integer.parseInt(year),
+                    new Teacher(teacherName, teacherStatus),
+                    Subject.Type.valueOf(type), name, new Place(placeName),
+                    hour, minute,
+                    Activity.WeekDay.valueOf(weekDay)));
 
         } catch (Exception ex) {
             System.out.println(ex);
