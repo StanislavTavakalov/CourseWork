@@ -6,6 +6,8 @@ import by.bntu.fitr.povt.jit.coursework.logic.LoginLogic;
 import by.bntu.fitr.povt.jit.coursework.model.Subject;
 import by.bntu.fitr.povt.jit.coursework.model.TimeTable;
 import by.bntu.fitr.povt.jit.coursework.model.User;
+import by.bntu.fitr.povt.jit.coursework.model.sort.ActivitySortType;
+import by.bntu.fitr.povt.jit.coursework.model.sort.ActivitySorter;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import by.bntu.fitr.povt.jit.coursework.resource.MessageManager;
 import java.util.ArrayList;
@@ -37,6 +39,7 @@ public class LoginCommand implements ActionCommand {
             //testFun(timeTable);
             User user = new  User(login,pass,User.Role.USER,new TimeTable());
             DataReadWriter.readAllUsersActivities(user);
+            ActivitySorter.sort(user.getTimeTable(), ActivitySortType.TIME_ASC);
             
             request.setAttribute("user", user);
             request.getSession().setAttribute("user", user);
