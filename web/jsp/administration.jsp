@@ -38,6 +38,7 @@
             <input type="hidden" name="command" value="tomainadminpage" />    
             <div class="buttonBack">
                 <button type="submit" class="btn btn-primary btn-block btn-large ">Back</button>
+                <p class="layers">${deleteUserError}</p>
             </div>
         </form>
 
