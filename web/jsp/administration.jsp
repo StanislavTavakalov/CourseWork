@@ -14,7 +14,7 @@
     <body>
 
         <form name="deleteUserForm" method="POST" action="controller">
-            <input type="hidden" name="command" value="toadministrationpage" />    
+            <input type="hidden" name="command" value="deleteuser" />    
             <div class="buttonDelete">
                 <button type="submit" class="btn btn-primary btn-block btn-large ">Delete user</button>
             </div>
