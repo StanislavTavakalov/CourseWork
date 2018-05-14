@@ -1,11 +1,17 @@
 package by.bntu.fitr.povt.jit.coursework.logic;
 
+import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
+import by.bntu.fitr.povt.jit.coursework.dao.Searcher;
+import by.bntu.fitr.povt.jit.coursework.model.User;
+import by.bntu.fitr.povt.jit.coursework.model.sort.ActivitySortType;
+import by.bntu.fitr.povt.jit.coursework.model.sort.ActivitySorter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import com.mysql.jdbc.Driver;
+
 public class LoginLogic {
 
     private final static String ADMIN_LOGIN = "admin";
@@ -15,29 +21,36 @@ public class LoginLogic {
 
     }
 
-    public static boolean checkLogin(String enterLogin, String enterPass){
-        String db = "jdbc:mysql://localhost:3306/accounts";
-      
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            try (Connection cn = DriverManager.getConnection(db,"root","root"); Statement st = cn.createStatement()) {
-               
-                ResultSet rs = st.executeQuery("select * from accounts where name='" + enterLogin + "' and password='" + enterPass + "'");
-               // st.executeQuery("insert into accounts values('stasp','123'");
-                return rs.next();
-            }
+    public static void login(User user) {
+        DataReadWriter.readAllUsersActivities(user);
+        ActivityInspector.checkAndRemove(user);
+        ActivitySorter.sort(user.getTimeTable(), ActivitySortType.TIME_ASC);
+    }
 
-        } catch (SQLException ex) {
-            
-            return false;
-        }
-        
-         catch (ClassNotFoundException ex) {
-            
-            return false;
-        }
-       //return ADMIN_LOGIN.equals(enterLogin)&& ADMIN_PASS.equals(enterPass);
+    public static boolean checkLogin(String enterLogin, String enterPass) {
+        return Searcher.searchLogin(enterLogin, enterPass);
+//        String db = "jdbc:mysql://localhost:3306/accounts";
+//      
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+//            try (Connection cn = DriverManager.getConnection(db,"root","root"); Statement st = cn.createStatement()) {
+//               
+//                ResultSet rs = st.executeQuery("select * from accounts where name='" + enterLogin + "' and password='" + enterPass + "'");
+//               // st.executeQuery("insert into accounts values('stasp','123'");
+//                return rs.next();
+//            }
+//
+//        } catch (SQLException ex) {
+//            
+//            return false;
+//        }
+//        
+//         catch (ClassNotFoundException ex) {
+//            
+//            return false;
+//        }
+//       //return ADMIN_LOGIN.equals(enterLogin)&& ADMIN_PASS.equals(enterPass);
 //    }
     }
 }

@@ -1,7 +1,7 @@
 package by.bntu.fitr.povt.jit.coursework.command;
 
 import by.bntu.fitr.povt.jit.coursework.logic.ActivityInspector;
-import by.bntu.fitr.povt.jit.coursework.logic.DataReadWriter;
+import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
 import javax.servlet.http.HttpServletRequest;
 import by.bntu.fitr.povt.jit.coursework.logic.LoginLogic;
 import by.bntu.fitr.povt.jit.coursework.model.Subject;
@@ -48,9 +48,7 @@ public class LoginCommand implements ActionCommand {
             }
 
             //User user = new  User(login,pass,User.Role.USER,new TimeTable());
-            DataReadWriter.readAllUsersActivities(user);
-            ActivityInspector.checkAndRemove(user);
-            ActivitySorter.sort(user.getTimeTable(), ActivitySortType.TIME_ASC);
+            LoginLogic.login(user);
 
             request.setAttribute("user", user);
             request.getSession().setAttribute("user", user);

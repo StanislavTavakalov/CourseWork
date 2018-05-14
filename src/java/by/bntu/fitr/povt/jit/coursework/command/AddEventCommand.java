@@ -1,6 +1,7 @@
 package by.bntu.fitr.povt.jit.coursework.command;
 
-import by.bntu.fitr.povt.jit.coursework.logic.DataReadWriter;
+import by.bntu.fitr.povt.jit.coursework.logic.ActivityManager;
+import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
 import by.bntu.fitr.povt.jit.coursework.logic.LoginLogic;
 import by.bntu.fitr.povt.jit.coursework.model.Activity;
 import by.bntu.fitr.povt.jit.coursework.model.Event;
@@ -35,36 +36,35 @@ public class AddEventCommand implements ActionCommand {
             String placeName = request.getParameter(PARAM_EVENT_PLACE);
             String endDateTime = request.getParameter(PARAM_EVENT_END_DATE_TIME);
 
-            int year = Integer.parseUnsignedInt(endDateTime.substring(0, 4));
-            int month = Integer.parseUnsignedInt(endDateTime.substring(5, 7));
-            int day = Integer.parseUnsignedInt(endDateTime.substring(8, 10));
-            int hour = Integer.parseUnsignedInt(endDateTime.substring(11, 13));
-            int minute = Integer.parseUnsignedInt(endDateTime.substring(14));
-
-            int timeHour = Integer.parseUnsignedInt(time.substring(0, 2));
-            int timeMinute = Integer.parseUnsignedInt(time.substring(3));
-
-            DataReadWriter.addActivity(
-                    new Event(year, month - 1, day, hour, minute, name,
-                            new Place(placeName), timeHour, timeMinute,
-                            Activity.WeekDay.valueOf(weekDay)),
-                    ((User) (request.getSession().getAttribute("user"))));
-
-            ((User) (request.getSession().getAttribute("user"))).getTimeTable().add(new Event(year, month - 1, day, hour, minute, name,
-                    new Place(placeName), timeHour, timeMinute,
-                    Activity.WeekDay.valueOf(weekDay)));
-            ActivitySorter.sort(((User) (request.getSession().getAttribute("user"))).getTimeTable(), ActivitySortType.TIME_ASC);
-
+//            int year = Integer.parseUnsignedInt(endDateTime.substring(0, 4));
+//            int month = Integer.parseUnsignedInt(endDateTime.substring(5, 7));
+//            int day = Integer.parseUnsignedInt(endDateTime.substring(8, 10));
+//            int hour = Integer.parseUnsignedInt(endDateTime.substring(11, 13));
+//            int minute = Integer.parseUnsignedInt(endDateTime.substring(14));
+//
+//            int timeHour = Integer.parseUnsignedInt(time.substring(0, 2));
+//            int timeMinute = Integer.parseUnsignedInt(time.substring(3));
+//
+//            DataReadWriter.addActivity(
+//                    new Event(year, month - 1, day, hour, minute, name,
+//                            new Place(placeName), timeHour, timeMinute,
+//                            Activity.WeekDay.valueOf(weekDay)),
+//                    ((User) (request.getSession().getAttribute("user"))));
+//
+//            ((User) (request.getSession().getAttribute("user"))).getTimeTable().add(new Event(year, month - 1, day, hour, minute, name,
+//                    new Place(placeName), timeHour, timeMinute,
+//                    Activity.WeekDay.valueOf(weekDay)));
+//            ActivitySorter.sort(((User) (request.getSession().getAttribute("user"))).getTimeTable(), ActivitySortType.TIME_ASC);
+            ActivityManager.AddEvent(weekDay, name, time, placeName, endDateTime, ((User) (request.getSession().getAttribute("user"))));
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        if(((User) (request.getSession().getAttribute("user"))).getRole()==User.Role.ADMIN)
-             page = ConfigurationManager.getProperty("path.page.mainadmin");
-        
-        else{
+        if (((User) (request.getSession().getAttribute("user"))).getRole() == User.Role.ADMIN) {
+            page = ConfigurationManager.getProperty("path.page.mainadmin");
+        } else {
             page = ConfigurationManager.getProperty("path.page.main");
         }
-             
+
         return page;
     }
 }

@@ -5,7 +5,7 @@
  */
 package by.bntu.fitr.povt.jit.coursework.command;
 
-import by.bntu.fitr.povt.jit.coursework.logic.DataReadWriter;
+import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
 import by.bntu.fitr.povt.jit.coursework.model.User;
 import by.bntu.fitr.povt.jit.coursework.model.UserLoginList;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;

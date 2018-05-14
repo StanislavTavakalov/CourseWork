@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package by.bntu.fitr.povt.jit.coursework.logic;
+package by.bntu.fitr.povt.jit.coursework.dao;
 
 import by.bntu.fitr.povt.jit.coursework.model.Activity;
 import by.bntu.fitr.povt.jit.coursework.model.Event;

@@ -5,7 +5,8 @@
  */
 package by.bntu.fitr.povt.jit.coursework.command;
 
-import by.bntu.fitr.povt.jit.coursework.logic.DataReadWriter;
+import by.bntu.fitr.povt.jit.coursework.logic.ActivityManager;
+import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
 import by.bntu.fitr.povt.jit.coursework.model.Activity;
 import by.bntu.fitr.povt.jit.coursework.model.User;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
@@ -29,20 +30,21 @@ public class DeleteActivityCommand implements ActionCommand {
         int index = Integer.parseUnsignedInt(request.getParameter(PARAM_DELETE_INDEX));
         String weekDay = request.getParameter(PARAM_WEEK_DAY_DELETE);
         index--; //X
-       
-            int indexOfElementToDelete = -1;
-    
-            for (Activity activity : ((User) (request.getSession().getAttribute("user"))).getTimeTable()) {
-                indexOfElementToDelete++;
-                if (activity.getWeekDay().equals(Activity.WeekDay.valueOf(weekDay))) {
-                    if (index != 0) {
-                        index--;
-                    } else {
-                        
-                        DataReadWriter.deleteActivity(((User) (request.getSession().getAttribute("user"))).getTimeTable().remove(indexOfElementToDelete), (User) (request.getSession().getAttribute("user")));
-                    }
-                }
-            }
+        ActivityManager.deleteActivity(index, weekDay, (User)(request.getSession().getAttribute("user")));
+//       
+//            int indexOfElementToDelete = -1;
+//    
+//            for (Activity activity : ((User) (request.getSession().getAttribute("user"))).getTimeTable()) {
+//                indexOfElementToDelete++;
+//                if (activity.getWeekDay().equals(Activity.WeekDay.valueOf(weekDay))) {
+//                    if (index != 0) {
+//                        index--;
+//                    } else {
+//                        
+//                        DataReadWriter.deleteActivity(((User) (request.getSession().getAttribute("user"))).getTimeTable().remove(indexOfElementToDelete), (User) (request.getSession().getAttribute("user")));
+//                    }
+//                }
+//            }
         }
         catch(Exception ex){
             System.out.print(ex);

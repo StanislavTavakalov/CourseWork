@@ -5,6 +5,7 @@
  */
 package by.bntu.fitr.povt.jit.coursework.logic;
 
+import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
 import by.bntu.fitr.povt.jit.coursework.model.TimeTable;
 import by.bntu.fitr.povt.jit.coursework.model.User;
 

@@ -1,6 +1,7 @@
 package by.bntu.fitr.povt.jit.coursework.command;
 
-import by.bntu.fitr.povt.jit.coursework.logic.DataReadWriter;
+import by.bntu.fitr.povt.jit.coursework.logic.ActivityManager;
+import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
 import by.bntu.fitr.povt.jit.coursework.logic.LoginLogic;
 import by.bntu.fitr.povt.jit.coursework.model.Activity;
 import by.bntu.fitr.povt.jit.coursework.model.Event;
@@ -56,26 +57,27 @@ public class AddSubjectCommand implements ActionCommand {
             String placeName = request.getParameter(PARAM_SUBJECT_PLACE_NAME);
             String teacherName = request.getParameter(PARAM_SUBJECT_TEACHER_NAME);
             String teacherStatus = request.getParameter(PARAM_SUBJECT_TEACHER_STATUS);
-
-            int hour = Integer.parseUnsignedInt(time.substring(0, 2));
-            //System.out.println(hour);
-            int minute = Integer.parseUnsignedInt(time.substring(3));
-            //System.out.println(minute);
-
-            DataReadWriter.addActivity(
-                    new Subject(Integer.parseInt(year),
-                            new Teacher(teacherName, teacherStatus),
-                            Subject.Type.valueOf(type), name, new Place(placeName),
-                            hour, minute,
-                            Activity.WeekDay.valueOf(weekDay)),
-                    ((User) (request.getSession().getAttribute("user"))));
-
-            ((User) (request.getSession().getAttribute("user"))).getTimeTable().add(new Subject(Integer.parseInt(year),
-                    new Teacher(teacherName, teacherStatus),
-                    Subject.Type.valueOf(type), name, new Place(placeName),
-                    hour, minute,
-                    Activity.WeekDay.valueOf(weekDay)));
-            ActivitySorter.sort(((User) (request.getSession().getAttribute("user"))).getTimeTable(), ActivitySortType.TIME_ASC);
+            ActivityManager.addSubject(weekDay, name, time, type, year, placeName,
+                    teacherName, teacherStatus, (User) (request.getSession().getAttribute("user")));
+//            int hour = Integer.parseUnsignedInt(time.substring(0, 2));
+//            //System.out.println(hour);
+//            int minute = Integer.parseUnsignedInt(time.substring(3));
+//            //System.out.println(minute);
+//
+//            DataReadWriter.addActivity(
+//                    new Subject(Integer.parseInt(year),
+//                            new Teacher(teacherName, teacherStatus),
+//                            Subject.Type.valueOf(type), name, new Place(placeName),
+//                            hour, minute,
+//                            Activity.WeekDay.valueOf(weekDay)),
+//                    ((User) (request.getSession().getAttribute("user"))));
+//
+//            ((User) (request.getSession().getAttribute("user"))).getTimeTable().add(new Subject(Integer.parseInt(year),
+//                    new Teacher(teacherName, teacherStatus),
+//                    Subject.Type.valueOf(type), name, new Place(placeName),
+//                    hour, minute,
+//                    Activity.WeekDay.valueOf(weekDay)));
+//            ActivitySorter.sort(((User) (request.getSession().getAttribute("user"))).getTimeTable(), ActivitySortType.TIME_ASC);
 
         } catch (Exception ex) {
             System.out.println(ex);
