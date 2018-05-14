@@ -180,7 +180,7 @@
 
 
 
-        <div class="container additonal layer" style="margin-top:300px" >
+        <div class="container additonal layer" style="width: 84%" >
 
             <table class="table table-striped ">
                 <%--c:forEach var="i"  begin="1" end="5" --%>
@@ -194,10 +194,10 @@
 
                     <tbody>
                         <tr>
-                            <td width="23%"> Time </td>
-                            <td width="23%"> Name </td>
-                            <td width="23%"> Place</td>
-                            <td width="31%"> Additional information</td>
+                            <td width="24%"> Time </td>
+                            <td width="24%"> Name </td>
+                            <td width="24%"> Place</td>
+                            <td width="28%"> Additional information</td>
                         </tr>
                         <c:forEach items= "${user.timeTable.activities}" var="item" >
                             <c:if test="${item.weekDay.toString()==weekday}"> 

@@ -44,7 +44,7 @@
 
 
 
-        <div class="loginlist additonal layer">
+            <div class="loginlist additonal layer" style="width: 38%">
 
             <table class="table table-striped ">
                 <thead> 

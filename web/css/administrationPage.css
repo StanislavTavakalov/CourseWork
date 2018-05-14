@@ -59,14 +59,14 @@ and open the template in the editor.
             .loginlist{
               
                 left: 20%;
-                top:45%;
+                top:40%;
                 position: absolute;  
                 
             }
             
               .layer {
                 overflow: scroll; /* Добавляем полосы прокрутки */
-                width: 520px; /* Ширина блока */
+                width: 720px; /* Ширина блока */
                 height: 350px; /* Высота блока */
                 padding: 5px; /* Поля вокруг текста */
                 border: solid 1px black; /* Параметры рамки */
@@ -77,7 +77,7 @@ and open the template in the editor.
                 width: 200px;
                 height: 30px;
                 left: 60%;
-                top:45%;
+                top:40%;
                 position: absolute;
 
             }
@@ -87,35 +87,37 @@ and open the template in the editor.
                 width: 200px;
                 height: 30px;
                 left: 60%;
-                top:55%;
+                top:50%;
                 position: absolute;
 
             }
             
              .inputFormDelete{
-                width: 128px;
+                width: 140px;
                 height: 80px;
-                left: 65%;
-                top:50%;
+                left: 63%;
+                top:45%;
                 position: absolute;  
             }
             
              .inputLayerDelete
             {
+                font-size: 18px;
                 width: 100px;
                 height: 110px;
                 left: 60%;
-                top:50%;
+                top:45%;
                 position: absolute;
            
             }
             
              .inputLayerTable
             {
+                font-size: 20px;
                 width: 100px;
                 height: 110px;
                 left: 20%;
-                top:40%;
+                top:37%;
                 position: absolute;
            
             }
