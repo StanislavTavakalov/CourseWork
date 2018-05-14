@@ -17,15 +17,20 @@ import java.util.function.Consumer;
  */
 public class UserLoginList implements Iterable<String>{
 
+    private static UserLoginList instance;
     private List<String> userLoginList;
 
-    public UserLoginList() {
+    private UserLoginList() {
         userLoginList = new ArrayList<>();
     }
 
-    public UserLoginList(List<String> userLoginList) {
-        this.userLoginList = userLoginList;
+     public static UserLoginList getInstance(){
+        if(instance == null){
+            instance = new UserLoginList();
+        }
+        return instance;
     }
+    
 
     public List<String> getUserLoginList() {
         return userLoginList;
