@@ -1,7 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<html><head><link rel="stylesheet" type="text/css" href="css/loginStyle2.css"><title>Login</title></head>
+<html><head><link rel="stylesheet" type="text/css" href="css/loginStyle.css"><title>Login</title></head>
 <body><div class="login"><h1>Sign in</h1><form name="loginForm" method="POST" action="controller">
         
 <input type="hidden" name="command" value="login" />

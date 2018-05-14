@@ -4,7 +4,7 @@
 <html>
     <head>
 
-        <link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
+        <link rel="stylesheet" type="text/css" href="css/pageStyle.css">
         <link rel="stylesheet" type="text/css" href="css/administrationPage.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
