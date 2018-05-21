@@ -1,7 +1,7 @@
-
 package by.bntu.fitr.povt.jit.coursework.logic;
 
 import by.bntu.fitr.povt.jit.coursework.dao.Registrar;
+import by.bntu.fitr.povt.jit.coursework.model.log.Log;
 
 public class RegisterLogic {
 
@@ -20,6 +20,11 @@ public class RegisterLogic {
         if (!checkPasswords(enterPass, enterPassConfirm)) {
             return false;
         }
-        return Registrar.registerLogin(enterLogin, enterPass);
+        if (Registrar.registerLogin(enterLogin, enterPass)) {
+            Log.LOG.info("New user:" + enterLogin);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

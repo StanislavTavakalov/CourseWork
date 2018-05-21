@@ -11,11 +11,12 @@ import by.bntu.fitr.povt.jit.coursework.command.ActionCommand;
 import by.bntu.fitr.povt.jit.coursework.command.factory.ActionFactory;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import by.bntu.fitr.povt.jit.coursework.resource.MessageManager;
+import java.io.File;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 @WebServlet("/controller")
-public class Controller
-        extends
-        HttpServlet {
+public class Controller extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,7 +29,7 @@ public class Controller
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
         String page = null;
         ActionFactory client = new ActionFactory();
         ActionCommand command = client.defineCommand(request);
@@ -39,7 +40,7 @@ public class Controller
         } else {
             page = ConfigurationManager.getProperty("path.page.index");
             request.getSession().setAttribute("nullPage",
-            MessageManager.getProperty("message.nullpage"));
+                    MessageManager.getProperty("message.nullpage"));
             response.sendRedirect(request.getContextPath() + page);
         }
     }

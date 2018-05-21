@@ -7,6 +7,7 @@ import by.bntu.fitr.povt.jit.coursework.model.Subject;
 import by.bntu.fitr.povt.jit.coursework.model.TimeTable;
 import by.bntu.fitr.povt.jit.coursework.model.User;
 import by.bntu.fitr.povt.jit.coursework.model.UserLoginList;
+import by.bntu.fitr.povt.jit.coursework.model.log.Log;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import by.bntu.fitr.povt.jit.coursework.resource.MessageManager;
 
@@ -14,12 +15,6 @@ public class LoginCommand implements ActionCommand {
 
     private static final String PARAM_NAME_LOGIN = "login";
     private static final String PARAM_NAME_PASSWORD = "password";
-
-    public static void testFun(TimeTable timeTable) {
-        timeTable.add(new Subject());
-        timeTable.add(new Subject());
-        timeTable.add(new Subject());
-    }
 
     @Override
     public String execute(HttpServletRequest request) {
@@ -29,7 +24,7 @@ public class LoginCommand implements ActionCommand {
         String pass = request.getParameter(PARAM_NAME_PASSWORD);
 
         if (LoginLogic.checkLogin(login, pass)) {
- 
+
             User user;
             if (login.equals("admin")) {
                 user = new User(login, pass, User.Role.ADMIN, new TimeTable());
@@ -54,6 +49,7 @@ public class LoginCommand implements ActionCommand {
         } else {
             request.setAttribute("errorLoginPassMessage", MessageManager.getProperty("message.loginerror"));
             page = ConfigurationManager.getProperty("path.page.login");
+            Log.LOG.warn("wrong login or password login:" + login);
         }
         return page;
     }

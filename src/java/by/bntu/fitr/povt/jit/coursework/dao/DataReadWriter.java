@@ -13,6 +13,7 @@ import by.bntu.fitr.povt.jit.coursework.model.Teacher;
 import by.bntu.fitr.povt.jit.coursework.model.TimeTable;
 import by.bntu.fitr.povt.jit.coursework.model.User;
 import by.bntu.fitr.povt.jit.coursework.model.UserLoginList;
+import by.bntu.fitr.povt.jit.coursework.model.log.Log;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -133,10 +134,10 @@ public class DataReadWriter {
             }
 
         } catch (SQLException ex) {
-
+            Log.LOG.error(ex);
             return false;
         } catch (ClassNotFoundException ex) {
-
+            Log.LOG.error(ex);
             return false;
         }
     }
@@ -178,10 +179,10 @@ public class DataReadWriter {
             }
 
         } catch (SQLException ex) {
-
+            Log.LOG.error(ex);
             return false;
         } catch (ClassNotFoundException ex) {
-
+            Log.LOG.error(ex);
             return false;
         }
     }
@@ -228,10 +229,10 @@ public class DataReadWriter {
 
             }
         } catch (SQLException ex) {
-
+            Log.LOG.error(ex);
             return false;
         } catch (ClassNotFoundException ex) {
-
+            Log.LOG.error(ex);
             return false;
         }
 
@@ -274,10 +275,11 @@ public class DataReadWriter {
             }
 
         } catch (SQLException ex) {
+            Log.LOG.error(ex);
             return false;
 
         } catch (ClassNotFoundException ex) {
-
+            Log.LOG.error(ex);
             return false;
         }
     }
@@ -302,10 +304,10 @@ public class DataReadWriter {
             }
 
         } catch (SQLException ex) {
-
+            Log.LOG.error(ex);
             return false;
         } catch (ClassNotFoundException ex) {
-
+            Log.LOG.error(ex);
             return false;
         }
     }
@@ -323,15 +325,15 @@ public class DataReadWriter {
                     userLoginList.add(rs.getString("name"));
                 }
                 rs.close();
-                System.out.println(userLoginList);
+                //System.out.println(userLoginList);
                 return true;
 
             }
         } catch (SQLException ex) {
-
+            Log.LOG.error(ex);
             return false;
         } catch (ClassNotFoundException ex) {
-
+            Log.LOG.error(ex);
             return false;
         }
     }
@@ -344,10 +346,10 @@ public class DataReadWriter {
             try (Connection cn = DriverManager.getConnection(db, "root", "root"); Statement st = cn.createStatement()) {
 
                 ResultSet rs = st.executeQuery("select name from accounts where name='" + userLogin + "'");
-                if(!rs.next()){
+                if (!rs.next()) {
                     return false;
                 }
-                
+
                 PreparedStatement ps = cn.prepareStatement(
                         "DELETE FROM accounts WHERE name='" + userLogin + "'");
 
@@ -358,10 +360,10 @@ public class DataReadWriter {
                 return true;
             }
         } catch (SQLException ex) {
-
+            Log.LOG.error(ex);
             return false;
         } catch (ClassNotFoundException ex) {
-
+            Log.LOG.error(ex);
             return false;
         }
     }

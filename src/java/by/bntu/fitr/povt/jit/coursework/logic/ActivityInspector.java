@@ -3,6 +3,7 @@ package by.bntu.fitr.povt.jit.coursework.logic;
 import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
 import by.bntu.fitr.povt.jit.coursework.model.TimeTable;
 import by.bntu.fitr.povt.jit.coursework.model.User;
+import by.bntu.fitr.povt.jit.coursework.model.log.Log;
 
 public class ActivityInspector {
 
@@ -15,7 +16,7 @@ public class ActivityInspector {
                 }
             }
         } catch (NullPointerException ex) {
-            System.out.println(ex);
+            Log.LOG.error(ex);
         }
     }
 }

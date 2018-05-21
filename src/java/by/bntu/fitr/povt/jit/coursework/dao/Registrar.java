@@ -5,6 +5,7 @@
  */
 package by.bntu.fitr.povt.jit.coursework.dao;
 
+import by.bntu.fitr.povt.jit.coursework.model.log.Log;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -39,10 +40,10 @@ public class Registrar {
             }
 
         } catch (SQLException ex) {
-
+            Log.LOG.error(ex);
             return false;
         } catch (ClassNotFoundException ex) {
-
+            Log.LOG.error(ex);
             return false;
         }
     }
