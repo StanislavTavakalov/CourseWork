@@ -182,45 +182,37 @@
 
         <div class="container additonal layer" style="width: 84%" >
 
-            <table class="table table-striped ">
-                <%--c:forEach var="i"  begin="1" end="5" --%>
+            <table class="table table-striped table-bordered">
+                
                 <c:forTokens items = "MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY" delims = "," var = "weekday">
 
 
                     <thead> 
-                    <td style="text-align: center" colspan="4" > ${weekday} </td>
+                    <th style="background: #FBF468; text-align: center; color: black" colspan="4"><b> ${weekday} </b></th>
                     
                     </thead>
 
                     <tbody>
                         <tr>
-                            <td width="24%"> Time </td>
-                            <td width="24%"> Name </td>
-                            <td width="24%"> Place</td>
-                            <td width="28%"> Additional information</td>
+                            <td width="24%"><b> Time </b></td>
+                            <td width="24%"><b> Name </b></td>
+                            <td width="24%"><b>Place </b></td>
+                            <td width="28%"><b>Additional information</b></td>
                         </tr>
                         <c:forEach items= "${user.timeTable.activities}" var="item" >
                             <c:if test="${item.weekDay.toString()==weekday}"> 
                                 <tr>
-                                    <th> ${item.time} </th>
-                                    <th> ${item.name} </th>
-                                    <th> ${item.place.name} </th>
-                                    <th> ${item.info} </th>
+                                    <th style="font-weight: normal"> ${item.time} </th>
+                                    <th style="font-weight: normal"> ${item.name} </th>
+                                    <th style="font-weight: normal"> ${item.place.name} </th>
+                                    <th style="font-weight: normal"> ${item.info} </th>
 
                                 </tr>
                             </c:if>
                         </c:forEach>
-                        <%--c:forEach var="i"  begin="1" end="10" >
-                            <tr>
-
-                                <th> ${user.timetable} </th>
-                                <th> 14.00 </th>
-                                <th>  </th>
-                                <th> 316 </th>
-                            </tr>
-                        </c:forEach--%>
+                        
                     </tbody>
-                    <%--/c:forEach--%>
+                    
                 </c:forTokens>
             </table>
         </div>

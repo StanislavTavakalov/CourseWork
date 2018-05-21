@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <html><head><link rel="stylesheet" type="text/css" href="css/loginStyle.css"><title>Login</title></head>
@@ -15,34 +14,13 @@ Password:
 <br/>${wrongAction}
 <br/>${nullPage}<br/>
 <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
-
-
-<%--a href="controller?command=register">Register</a--%>
-<%--a href="controller?command=toregisterpage">Register</a--%>
-
-<%--br/><input type="button"  class="btn btn-primary btn-block btn-large" value="Registation" /--%>
-
 </form>
-
 
 <form name="registerForm" method="POST" action="controller">
 <input type="hidden" name="command" value="toregisterpage" />
-
-
 <button type="submit" class="btn btn-primary btn-block btn-large">Register</button>
 </form>
 </div>
-<%--form name="registerForm" method="POST" action="controller">
-<input type="hidden" name="command" value="register" />
-
-
-<input type="submit" value="Register"/>
-
-
-
-
-</form><hr/>
---%>
 
 </body>
 </html>
