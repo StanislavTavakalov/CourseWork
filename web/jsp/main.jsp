@@ -61,7 +61,7 @@
 
                 <select class="choose" style="width: 80%" name="subjectType">
                     <option value="LECTURE"> Lecture</option>
-                    <option value="PRACTISE"> Practise</option>
+                    <option value="PRACTICE"> Practice</option>
                 </select>
 
                 <input type="text" style="width: 80%" name="subjectPlace" class="" value="" />
