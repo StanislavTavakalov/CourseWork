@@ -11,9 +11,16 @@ public class LogoutCommand
 
     @Override
     public String execute(HttpServletRequest request) {
-//        String page = ConfigurationManager.getProperty("path.page.index");
-        String page = ConfigurationManager.getProperty("path.page.login");
-        Log.LOG.info("Logout user:" + ((User)(request.getSession().getAttribute("user"))).getLogin());
+        String page = ConfigurationManager.getProperty("path.page.index");
+//        String page = ConfigurationManager.getProperty("path.page.login");
+        try {
+            User user = (User) (request.getSession().getAttribute("user"));
+            if (user != null) {
+                Log.LOG.info("Logout user:" + user.getLogin());
+            }
+        } catch (Exception ex) {
+            Log.LOG.error(ex);
+        }
         request.getSession().invalidate();
         return page;
     }
