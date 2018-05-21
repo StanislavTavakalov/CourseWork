@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 
 public class Subject extends Activity{
     public enum Type{
-        LECTURE,PRACTISE
+        LECTURE,PRACTICE
     }
     private int year;
     private Teacher teacher;
