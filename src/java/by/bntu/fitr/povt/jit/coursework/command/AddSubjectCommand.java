@@ -2,6 +2,7 @@ package by.bntu.fitr.povt.jit.coursework.command;
 
 import by.bntu.fitr.povt.jit.coursework.logic.ActivityManager;
 import by.bntu.fitr.povt.jit.coursework.model.User;
+import by.bntu.fitr.povt.jit.coursework.model.log.Log;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,7 +16,6 @@ public class AddSubjectCommand implements ActionCommand {
     private static final String PARAM_SUBJECT_PLACE_NAME = "subjectPlace";
     private static final String PARAM_SUBJECT_TEACHER_NAME = "teacherName";
     private static final String PARAM_SUBJECT_TEACHER_STATUS = "teacherStatus";
-
 
     @Override
     public String execute(HttpServletRequest request) {
@@ -33,16 +33,15 @@ public class AddSubjectCommand implements ActionCommand {
             ActivityManager.addSubject(weekDay, name, time, type, year, placeName,
                     teacherName, teacherStatus, (User) (request.getSession().getAttribute("user")));
         } catch (Exception ex) {
-            System.out.println(ex);
+            Log.LOG.error(ex);
         }
 
-      if(((User) (request.getSession().getAttribute("user"))).getRole()==User.Role.ADMIN)
-             page = ConfigurationManager.getProperty("path.page.mainadmin");
-        
-        else{
+        if (((User) (request.getSession().getAttribute("user"))).getRole() == User.Role.ADMIN) {
+            page = ConfigurationManager.getProperty("path.page.mainadmin");
+        } else {
             page = ConfigurationManager.getProperty("path.page.main");
         }
-      
+
         return page;
     }
 }
