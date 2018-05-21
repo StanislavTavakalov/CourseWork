@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package by.bntu.fitr.povt.jit.coursework.model;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-/**
- *
- * @author Dima_T
- */
 public class Subject extends Activity{
     public enum Type{
         LECTURE,PRACTISE
@@ -90,7 +82,4 @@ public class Subject extends Activity{
                 ", date=" + getDate() + ", weekDay=" + getWeekDay() +
                  ", year=" + year + ", teacher=" + teacher + ", type=" + type + '}';
     }
-        
-   
-   
 }

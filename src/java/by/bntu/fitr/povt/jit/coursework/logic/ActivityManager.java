@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package by.bntu.fitr.povt.jit.coursework.logic;
 
 import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
@@ -15,10 +10,6 @@ import by.bntu.fitr.povt.jit.coursework.model.User;
 import by.bntu.fitr.povt.jit.coursework.model.sort.ActivitySortType;
 import by.bntu.fitr.povt.jit.coursework.model.sort.ActivitySorter;
 
-/**
- *
- * @author Swyatoslaw
- */
 public class ActivityManager {
 
     public static void AddEvent(String weekDay, String name, String time,
@@ -48,9 +39,7 @@ public class ActivityManager {
     public static void addSubject(String weekDay, String name, String time,
             String type, String year, String placeName, String teacherName, String teacherStatus, User user) {
         int hour = Integer.parseUnsignedInt(time.substring(0, 2));
-        //System.out.println(hour);
         int minute = Integer.parseUnsignedInt(time.substring(3));
-        //System.out.println(minute);
 
         DataReadWriter.addActivity(
                 new Subject(Integer.parseInt(year),
@@ -68,20 +57,20 @@ public class ActivityManager {
         ActivitySorter.sort(user.getTimeTable(), ActivitySortType.TIME_ASC);
 
     }
-    public static void deleteActivity(int index, String weekDay, User user){
-        
-            int indexOfElementToDelete = -1;
-    
-            for (Activity activity : user.getTimeTable()) {
-                indexOfElementToDelete++;
-                if (activity.getWeekDay().equals(Activity.WeekDay.valueOf(weekDay))) {
-                    if (index != 0) {
-                        index--;
-                    } else {
-                        
-                        DataReadWriter.deleteActivity(user.getTimeTable().remove(indexOfElementToDelete), user);
-                    }
+
+    public static void deleteActivity(int index, String weekDay, User user) {
+
+        int indexOfElementToDelete = -1;
+
+        for (Activity activity : user.getTimeTable()) {
+            indexOfElementToDelete++;
+            if (activity.getWeekDay().equals(Activity.WeekDay.valueOf(weekDay))) {
+                if (index != 0) {
+                    index--;
+                } else {
+                    DataReadWriter.deleteActivity(user.getTimeTable().remove(indexOfElementToDelete), user);
                 }
             }
+        }
     }
 }

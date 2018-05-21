@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package by.bntu.fitr.povt.jit.coursework.model;
 
 import java.util.ArrayList;
@@ -11,10 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
-/**
- *
- * @author Swyatoslaw
- */
 public class UserLoginList implements Iterable<String>{
 
     private static UserLoginList instance;
@@ -30,7 +22,6 @@ public class UserLoginList implements Iterable<String>{
         }
         return instance;
     }
-    
 
     public List<String> getUserLoginList() {
         return userLoginList;

@@ -5,6 +5,7 @@ import by.bntu.fitr.povt.jit.coursework.command.AddEventCommand;
 import by.bntu.fitr.povt.jit.coursework.command.AddSubjectCommand;
 import by.bntu.fitr.povt.jit.coursework.command.DeleteActivityCommand;
 import by.bntu.fitr.povt.jit.coursework.command.DeleteUserCommand;
+import by.bntu.fitr.povt.jit.coursework.command.EmptyCommand;
 import by.bntu.fitr.povt.jit.coursework.command.LoginCommand;
 import by.bntu.fitr.povt.jit.coursework.command.LogoutCommand;
 import by.bntu.fitr.povt.jit.coursework.command.RegisterCommand;
@@ -68,6 +69,11 @@ public enum CommandEnum {
     DELETEUSER {
         {
             this.command = new DeleteUserCommand();
+        }
+    } ,
+    EMPTY {
+        {
+            this.command = new EmptyCommand();
         }
     };
 

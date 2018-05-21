@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package by.bntu.fitr.povt.jit.coursework.model;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-/**
- *
- * @author Dima_T
- */
 public class Event extends Activity {
 
     private GregorianCalendar endTime;
@@ -35,10 +27,6 @@ public class Event extends Activity {
             return false;
         }
         return true;
-//        if(endTime.getTimeInMillis() - new GregorianCalendar().getTimeInMillis() < 0){
-//            return false;
-//        }
-//        return true;
     }
 
     public Event(GregorianCalendar endTime, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
@@ -53,10 +41,7 @@ public class Event extends Activity {
 
     public Event(int count, String name, Place place, GregorianCalendar date, WeekDay weekDay) {
         super(name, place, date, weekDay);
-
         this.endTime = new GregorianCalendar();
-        //GregorianCalendar now = new GregorianCalendar();
-        //this.endTime = new GregorianCalendar(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH)+count*7);
     }
 
     public Event() {
@@ -84,6 +69,5 @@ public class Event extends Activity {
         return endTime.get(Calendar.DAY_OF_MONTH) + "." + (endTime.get(Calendar.MONTH) + 1) 
                 + "." + endTime.get(Calendar.YEAR) + " " + endTime.get(Calendar.HOUR_OF_DAY)
                 + ":" + endTime.get(Calendar.MINUTE);
-
     }
 }

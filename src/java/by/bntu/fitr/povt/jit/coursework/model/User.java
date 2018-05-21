@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package by.bntu.fitr.povt.jit.coursework.model;
 
-/**
- *
- * @author Dima_T
- */
 public class User {
    private String login;
    private String password;
@@ -66,6 +57,5 @@ public class User {
     public String toString() {
         return "User{" + "login=" + login + ", password=" + password + ", role=" + role + ", timeTable=" + timeTable + '}';
     }
-  
   
 }

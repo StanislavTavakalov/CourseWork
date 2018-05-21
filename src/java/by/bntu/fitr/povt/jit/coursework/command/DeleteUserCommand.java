@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package by.bntu.fitr.povt.jit.coursework.command;
 
 import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
@@ -12,14 +8,9 @@ import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import by.bntu.fitr.povt.jit.coursework.resource.MessageManager;
 import javax.servlet.http.HttpServletRequest;
 
-/**
- *
- * @author Dima_T
- */
 public class DeleteUserCommand implements ActionCommand {
 
     private static final String PARAM_DELETE_USER = "deleteUser";
-    //private static final String PARAM_EVENT_NAME = "eventName";
 
     @Override
     public String execute(HttpServletRequest request) {
@@ -42,7 +33,6 @@ public class DeleteUserCommand implements ActionCommand {
 
         String page = ConfigurationManager.getProperty("path.page.administration");
 
-        //  request.getSession().invalidate();
         return page;
     }
 }

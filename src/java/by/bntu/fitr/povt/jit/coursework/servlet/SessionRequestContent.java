@@ -17,15 +17,11 @@ public class SessionRequestContent {
         this.requestParameters = requestParameters;
         this.sessionAttributes = sessionAttributes;
     }
-// конструкторы
-// метод извлечения информации из запроса
     public void extractValues(HttpServletRequest request) {
         
     }
     
-// метод добавления в запрос данных для передачи в jsp
     public void insertAttributes(HttpServletRequest request) {
-// реализация
+        ;
     }
-// some methods
 }

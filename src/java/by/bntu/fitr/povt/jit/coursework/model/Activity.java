@@ -1,24 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package by.bntu.fitr.povt.jit.coursework.model;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
-/**
- *
- * @author Dima_T
- */
 public abstract class Activity {
     
     private String name;
-    //...TIME
     private Place place;
-    
     private GregorianCalendar date;
    
     public enum WeekDay{
@@ -41,16 +30,12 @@ public abstract class Activity {
         this.weekDay = weekDay;
     }
 
-   
-
     public Activity() {
         name = "name";
         
         place = new Place();
         date = new GregorianCalendar();
         weekDay = WeekDay.MONDAY;
-        
-        
     }
     public abstract boolean check();
 
@@ -93,8 +78,6 @@ public abstract class Activity {
         
         return date.get(Calendar.HOUR_OF_DAY) + ":" + date.get(Calendar.MINUTE);
     }
-    
-    
 
     @Override
     public String toString() {
