@@ -28,11 +28,13 @@ public class LoginCommand implements ActionCommand {
             User user;
             if (login.equals("admin")) {
                 user = new User(login, pass, User.Role.ADMIN, new TimeTable());
+                request.getSession().setAttribute("isAdmin", true);
                 //UserLoginList userLoginList = UserLoginList.getInstance();
                 //DataReadWriter.readAllUserLogins(userLoginList);
                 //request.getSession().setAttribute("userLoginList", userLoginList);
             } else {
                 user = new User(login, pass, User.Role.USER, new TimeTable());
+                request.getSession().setAttribute("isAdmin", false);
             }
 
             LoginLogic.login(user);
@@ -40,11 +42,9 @@ public class LoginCommand implements ActionCommand {
             request.setAttribute("user", user);
             request.getSession().setAttribute("user", user);
 
-            if (user.getRole() == User.Role.ADMIN) {
-                page = ConfigurationManager.getProperty("path.page.mainadmin");
-            } else {
+            
                 page = ConfigurationManager.getProperty("path.page.main");
-            }
+          
 
         } else {
             request.setAttribute("errorLoginPassMessage", MessageManager.getProperty("message.loginerror"));

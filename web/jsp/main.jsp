@@ -167,8 +167,14 @@
         </div>
         </form>
 
-
-
+        <c:if test="${isAdmin}"> 
+            <form name="administrationForm" method="POST" action="controller">
+            <input type="hidden" name="command" value="toadministrationpage" />    
+            <div class="button5">
+                <button type="submit" class="btn btn-primary btn-block btn-large ">Administration</button>
+            </div>
+            </form>
+         </c:if>
 
         <div class="container additonal layer" style="width:84%" >
 

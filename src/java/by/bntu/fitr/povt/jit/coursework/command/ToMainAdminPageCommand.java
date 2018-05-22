@@ -8,7 +8,7 @@ public class ToMainAdminPageCommand implements ActionCommand {
 
     @Override
     public String execute(HttpServletRequest request) {
-        String page = ConfigurationManager.getProperty("path.page.mainadmin");
+        String page = ConfigurationManager.getProperty("path.page.main");
         return page;
     }
 }
