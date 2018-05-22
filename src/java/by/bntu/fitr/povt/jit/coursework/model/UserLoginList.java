@@ -74,5 +74,8 @@ public class UserLoginList implements Iterable<String>{
         return userLoginList.get(index);
     }
     
-
+    public void clear(){
+        userLoginList.clear();
+    }
+    
 }

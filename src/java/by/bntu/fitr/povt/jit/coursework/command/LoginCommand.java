@@ -28,9 +28,9 @@ public class LoginCommand implements ActionCommand {
             User user;
             if (login.equals("admin")) {
                 user = new User(login, pass, User.Role.ADMIN, new TimeTable());
-                UserLoginList userLoginList = UserLoginList.getInstance();
-                DataReadWriter.readAllUserLogins(userLoginList);
-                request.getSession().setAttribute("userLoginList", userLoginList);
+                //UserLoginList userLoginList = UserLoginList.getInstance();
+                //DataReadWriter.readAllUserLogins(userLoginList);
+                //request.getSession().setAttribute("userLoginList", userLoginList);
             } else {
                 user = new User(login, pass, User.Role.USER, new TimeTable());
             }

@@ -30,4 +30,11 @@ public class LoginLogic {
             return false;
         }
     }
+    
+    public static UserLoginList getUserLoginList(){
+        UserLoginList userLoginList = UserLoginList.getInstance();
+        userLoginList.clear();
+        DataReadWriter.readAllUserLogins(userLoginList);
+        return userLoginList;
+    }
 }
