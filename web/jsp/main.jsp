@@ -14,7 +14,6 @@
     <body>
 
         <table class="profile"> 
-
             <tbody>
                 <tr>
                     <td class="profile1" rowspan="2"><img src="css/user.png" width="120" height="120"></td>
@@ -158,34 +157,34 @@
 
 
         </form>
-            
-            
+
+
         <form name="updateTimeTable" method="POST" action="controller">
-        <input type="hidden" name="command" value="updatetimetable" />    
-        <div class="button4">
-            <button type="submit" class="btn btn-primary btn-block btn-large ">Update timetable</button>
-        </div>
+            <input type="hidden" name="command" value="updatetimetable" />    
+            <div class="button4">
+                <button type="submit" class="btn btn-primary btn-block btn-large ">Update timetable</button>
+            </div>
         </form>
 
         <c:if test="${isAdmin}"> 
             <form name="administrationForm" method="POST" action="controller">
-            <input type="hidden" name="command" value="toadministrationpage" />    
-            <div class="button5">
-                <button type="submit" class="btn btn-primary btn-block btn-large ">Administration</button>
-            </div>
+                <input type="hidden" name="command" value="toadministrationpage" />    
+                <div class="button5">
+                    <button type="submit" class="btn btn-primary btn-block btn-large ">Administration</button>
+                </div>
             </form>
-         </c:if>
+        </c:if>
 
         <div class="container additonal layer" style="width:84%" >
 
             <table class="table table-striped table-bordered">
-                
+
                 <c:forTokens items = "MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY" delims = "," var = "weekday">
 
 
                     <thead> 
                     <th class="timeTableHead" colspan="4"><b> ${weekday} </b></th>
-                    
+
                     </thead>
 
                     <tbody>
@@ -206,9 +205,9 @@
                                 </tr>
                             </c:if>
                         </c:forEach>
-                        
+
                     </tbody>
-                    
+
                 </c:forTokens>
             </table>
         </div>

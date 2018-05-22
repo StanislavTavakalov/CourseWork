@@ -12,10 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- *
- * @author Swyatoslaw
- */
+
 public class Searcher implements ISearcher{
 
     private final static String ADMIN_LOGIN = "admin";
