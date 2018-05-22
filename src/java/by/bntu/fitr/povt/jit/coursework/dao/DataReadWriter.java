@@ -27,12 +27,13 @@ import java.util.GregorianCalendar;
  *
  * @author Swyatoslaw
  */
-public class DataReadWriter {
+public class DataReadWriter implements IDataReadWriter {
 
-    private static String ACTIVITY_TYPE_SYBJECT = "subject";
-    private static String ACTIVITY_TYPE_EVENT = "event";
+    private static final String ACTIVITY_TYPE_SYBJECT = "subject";
+    private static final String ACTIVITY_TYPE_EVENT = "event";
 
-    public static boolean addActivity(Activity activity, User user) {
+    @Override
+    public boolean addActivity(Activity activity, User user) {
 
         if (activity.getClass() == Subject.class) {
             //System.out.println("activity.getClass() == Subject.class");
@@ -187,7 +188,9 @@ public class DataReadWriter {
         }
     }
 
-    public static boolean readAllUsersActivities(User user) {
+    @Override
+
+    public boolean readAllUsersActivities(User user) {
 //        user.getTimeTable().add(e)
         String db = "jdbc:mysql://localhost:3306/accounts";
         try {
@@ -238,7 +241,9 @@ public class DataReadWriter {
 
     }
 
-    public static boolean deleteActivity(Activity activity, User user) {
+    @Override
+
+    public boolean deleteActivity(Activity activity, User user) {
 
         if (activity.getClass() == Subject.class) {
             return deleteSubject((Subject) activity, user);
@@ -312,7 +317,9 @@ public class DataReadWriter {
         }
     }
 
-    public static boolean readAllUserLogins(UserLoginList userLoginList) {
+    @Override
+
+    public boolean readAllUserLogins(UserLoginList userLoginList) {
         String db = "jdbc:mysql://localhost:3306/accounts";
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -338,7 +345,9 @@ public class DataReadWriter {
         }
     }
 
-    public static boolean deleteUserAndHisActivity(String userLogin) {
+    @Override
+
+    public boolean deleteUserAndHisActivity(String userLogin) {
         String db = "jdbc:mysql://localhost:3306/accounts";
         try {
             Class.forName("com.mysql.jdbc.Driver");

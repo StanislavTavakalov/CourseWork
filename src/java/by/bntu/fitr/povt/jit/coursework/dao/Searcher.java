@@ -16,7 +16,7 @@ import java.sql.Statement;
  *
  * @author Swyatoslaw
  */
-public class Searcher {
+public class Searcher implements ISearcher{
 
     private final static String ADMIN_LOGIN = "admin";
     private final static String ADMIN_PASS = "Qwe123";
@@ -24,7 +24,8 @@ public class Searcher {
     public static void connect(String enterLogin, String enterPass) {
     }
 
-    public static boolean searchLogin(String enterLogin, String enterPass) {
+    @Override
+    public boolean searchLogin(String enterLogin, String enterPass) {
         String db = "jdbc:mysql://localhost:3306/accounts";
 
         try {

@@ -1,6 +1,7 @@
 package by.bntu.fitr.povt.jit.coursework.logic;
 
-import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
+import by.bntu.fitr.povt.jit.coursework.command.factory.FactoryContainer;
+//import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
 import by.bntu.fitr.povt.jit.coursework.model.Activity;
 import by.bntu.fitr.povt.jit.coursework.model.Event;
 import by.bntu.fitr.povt.jit.coursework.model.Place;
@@ -23,11 +24,16 @@ public class ActivityManager {
         int timeHour = Integer.parseUnsignedInt(time.substring(0, 2));
         int timeMinute = Integer.parseUnsignedInt(time.substring(3));
 
-        DataReadWriter.addActivity(
+        FactoryContainer.getInstance().getDaoFactory().getDataReadWriter().addActivity(
                 new Event(year, month - 1, day, hour, minute, name,
                         new Place(placeName), timeHour, timeMinute,
                         Activity.WeekDay.valueOf(weekDay)),
                 user);
+//        DataReadWriter.addActivity(
+//                new Event(year, month - 1, day, hour, minute, name,
+//                        new Place(placeName), timeHour, timeMinute,
+//                        Activity.WeekDay.valueOf(weekDay)),
+//                user);
 
         user.getTimeTable().add(new Event(year, month - 1, day, hour, minute, name,
                 new Place(placeName), timeHour, timeMinute,
@@ -41,13 +47,20 @@ public class ActivityManager {
         int hour = Integer.parseUnsignedInt(time.substring(0, 2));
         int minute = Integer.parseUnsignedInt(time.substring(3));
 
-        DataReadWriter.addActivity(
+        FactoryContainer.getInstance().getDaoFactory().getDataReadWriter().addActivity(
                 new Subject(Integer.parseInt(year),
                         new Teacher(teacherName, teacherStatus),
                         Subject.Type.valueOf(type), name, new Place(placeName),
                         hour, minute,
                         Activity.WeekDay.valueOf(weekDay)),
                 user);
+//        DataReadWriter.addActivity(
+//                new Subject(Integer.parseInt(year),
+//                        new Teacher(teacherName, teacherStatus),
+//                        Subject.Type.valueOf(type), name, new Place(placeName),
+//                        hour, minute,
+//                        Activity.WeekDay.valueOf(weekDay)),
+//                user);
 
         user.getTimeTable().add(new Subject(Integer.parseInt(year),
                 new Teacher(teacherName, teacherStatus),
@@ -68,7 +81,8 @@ public class ActivityManager {
                 if (index != 0) {
                     index--;
                 } else {
-                    DataReadWriter.deleteActivity(user.getTimeTable().remove(indexOfElementToDelete), user);
+                    FactoryContainer.getInstance().getDaoFactory().getDataReadWriter().deleteActivity(user.getTimeTable().remove(indexOfElementToDelete), user);
+                    //DataReadWriter.deleteActivity(user.getTimeTable().remove(indexOfElementToDelete), user);
                 }
             }
         }

@@ -1,10 +1,7 @@
-
 package by.bntu.fitr.povt.jit.coursework.command;
 
-import by.bntu.fitr.povt.jit.coursework.dao.DataReadWriter;
 import by.bntu.fitr.povt.jit.coursework.logic.LoginLogic;
 import by.bntu.fitr.povt.jit.coursework.model.User;
-import by.bntu.fitr.povt.jit.coursework.model.UserLoginList;
 import by.bntu.fitr.povt.jit.coursework.model.log.Log;
 import by.bntu.fitr.povt.jit.coursework.resource.ConfigurationManager;
 import by.bntu.fitr.povt.jit.coursework.resource.MessageManager;
@@ -20,7 +17,9 @@ public class DeleteUserCommand implements ActionCommand {
         try {
             String userLogin = request.getParameter(PARAM_DELETE_USER);
             if (!userLogin.equals(((User) (request.getSession().getAttribute("user"))).getLogin())) {
-                if (LoginLogic.deleteUser(userLogin, (UserLoginList) (request.getSession().getAttribute("userLoginList")))) {
+                //if (LoginLogic.deleteUser(userLogin, (UserLoginList) (request.getSession().getAttribute("userLoginList")))) {
+                if (LoginLogic.deleteUser(userLogin, LoginLogic.getUserLoginList())) {
+                    request.setAttribute("userLoginList", LoginLogic.getUserLoginList());
                 } else {
                     request.setAttribute("deleteUserError", MessageManager.getProperty("message.deleteusernotfounderror"));
                 }

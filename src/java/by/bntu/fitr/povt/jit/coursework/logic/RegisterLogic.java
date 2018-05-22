@@ -1,6 +1,7 @@
 package by.bntu.fitr.povt.jit.coursework.logic;
 
-import by.bntu.fitr.povt.jit.coursework.dao.Registrar;
+import by.bntu.fitr.povt.jit.coursework.command.factory.FactoryContainer;
+//import by.bntu.fitr.povt.jit.coursework.dao.Registrar;
 import by.bntu.fitr.povt.jit.coursework.model.log.Log;
 
 public class RegisterLogic {
@@ -20,7 +21,8 @@ public class RegisterLogic {
         if (!checkPasswords(enterPass, enterPassConfirm)) {
             return false;
         }
-        if (Registrar.registerLogin(enterLogin, enterPass)) {
+//        if (Registrar.registerLogin(enterLogin, enterPass)) {
+        if (FactoryContainer.getInstance().getDaoFactory().getRegistrar().registerLogin(enterLogin, enterPass)) {
             Log.LOG.info("New user:" + enterLogin);
             return true;
         } else {

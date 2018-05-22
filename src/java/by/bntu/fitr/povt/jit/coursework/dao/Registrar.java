@@ -17,9 +17,10 @@ import java.sql.Statement;
  *
  * @author Swyatoslaw
  */
-public class Registrar {
+public class Registrar implements IRegistrar{
 
-    public static boolean registerLogin(String enterLogin, String enterPass) {
+    @Override
+    public boolean registerLogin(String enterLogin, String enterPass) {
 
  
         String db = "jdbc:mysql://localhost:3306/accounts";
