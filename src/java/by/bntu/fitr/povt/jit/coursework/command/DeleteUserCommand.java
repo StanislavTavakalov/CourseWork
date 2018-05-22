@@ -22,10 +22,10 @@ public class DeleteUserCommand implements ActionCommand {
                     request.setAttribute("userLoginList", LoginLogic.getUserLoginList());
                 } else {
                     request.setAttribute("deleteUserError", MessageManager.getProperty("message.deleteusernotfounderror"));
-                }
+                }   request.setAttribute("userLoginList", LoginLogic.getUserLoginList());
             } else {
                 request.setAttribute("deleteUserError", MessageManager.getProperty("message.deleteusererror"));
-
+                request.setAttribute("userLoginList", LoginLogic.getUserLoginList());
             }
         } catch (Exception ex) {
             Log.LOG.error(ex);
