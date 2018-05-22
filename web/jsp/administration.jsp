@@ -44,18 +44,18 @@
 
 
 
-            <div class="loginlist additonal layer" style="width: 38%">
+        <div class="loginlist additonal layer" style="width: 38%">
 
             <table class="table table-striped ">
                 <thead> 
-                <td style="text-align: center" colspan="4" > Login </td>
+                <td style="text-align: center" colspan="4" ><b> Login </b> </td>
                 </thead>
                 <tbody>
-                    
+
                     <c:forEach items= "${userLoginList.iterator()}" var="login" >
                         <c:if test="${login!=admin}"> 
                             <tr>
-                                <th> ${login} </th>
+                                <th style="font-weight: normal"> ${login} </th>
                             </tr>
                         </c:if>
                     </c:forEach>
