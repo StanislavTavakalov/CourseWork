@@ -34,8 +34,8 @@
         </form>
 
 
-        <form name="backToMainAdminForm" method="POST" action="controller">
-            <input type="hidden" name="command" value="tomainadminpage" />    
+        <form name="backToMainForm" method="POST" action="controller">
+            <input type="hidden" name="command" value="tomainpage" />    
             <div class="buttonBack">
                 <button type="submit" class="btn btn-primary btn-block btn-large ">Back</button>
                 <p class="layers">${deleteUserError}</p>
