@@ -5,7 +5,7 @@
 
                 <input type="hidden" name="command" value="login" />
 
-                Login:<br/><input type="text" name="login" value="" />
+                Login: <br/><input type="text" name="login" value="" />
                 <br/>
                 Password:
                 <br/>

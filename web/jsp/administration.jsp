@@ -20,7 +20,7 @@
             </div>
 
             <div class="inputLayerDelete">
-                <p class="layers">Login:</p>
+                <p class="layers" style="font-size: 18px">Login:</p>
             </div> 
 
             <div class="inputFormDelete">
@@ -28,7 +28,7 @@
             </div>
 
             <div class="inputLayerTable">
-                <p class="layers">User list:</p>
+                <p class="layers" style="font-size: 22px">User list:</p>
             </div> 
 
         </form>
@@ -38,7 +38,7 @@
             <input type="hidden" name="command" value="tomainpage" />    
             <div class="buttonBack">
                 <button type="submit" class="btn btn-primary btn-block btn-large ">Back</button>
-                <p class="layers">${deleteUserError}</p>
+                <p class="layers" style="font-size: 16px">${deleteUserError}</p>
             </div>
         </form>
 
@@ -48,14 +48,14 @@
 
             <table class="table table-striped ">
                 <thead> 
-                <td style="text-align: center" colspan="4" ><b> Login </b> </td>
+                <td style="text-align: center; font-size: 22px" colspan="4"  ><b> Login </b> </td>
                 </thead>
                 <tbody>
 
                     <c:forEach items= "${userLoginList.iterator()}" var="login" >
                         <c:if test="${login!=admin}"> 
                             <tr>
-                                <th style="font-weight: normal"> ${login} </th>
+                                <th style="font-weight: normal; font-size: 18px" > ${login} </th>
                             </tr>
                         </c:if>
                     </c:forEach>

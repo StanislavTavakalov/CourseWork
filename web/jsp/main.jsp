@@ -16,11 +16,11 @@
         <table class="profile"> 
             <tbody>
                 <tr>
-                    <td class="profile1" rowspan="2"><img src="css/user.png" width="120" height="120"></td>
-                    <th class="profile2"> ${user.login}</th>
+                    <td class="profile1" rowspan="2"><img src="css/user.png" width="140" height="140"></td>
+                    <th class="profile2" style="font-size: 18px"> ${user.login}</th>
                 </tr>
                 <tr>
-                    <th class="profile2"><a  href="controller?command=logout">Logout</a></th>
+                    <th class="profile2" style="font-size: 18px"><a href="controller?command=logout" style="color: #3399ff">Logout</a></th>
 
                 </tr>
             </tbody>
@@ -69,8 +69,8 @@
 
 
             <div class="inputLayer4">
-                <p class="layers">Year:</p>
-                <p class="layers">Teacher info:</p>
+                <p class="layers" style="padding: 0px">Year:</p>
+                <p class="layers" style="padding: 0px">Teacher info:</p>
             </div> 
 
             <div class="inputForm4">
@@ -101,7 +101,7 @@
                 <p class="layers">Day:</p>
                 <p class="layers">Name:</p>
                 <p class="layers">Time:</p>
-                <p class="layers">End Time:</p>
+                <p class="layers">End time:</p>
                 <p class="layers">Place:</p>
             </div> 
 
@@ -183,24 +183,24 @@
 
 
                     <thead> 
-                    <th class="timeTableHead" colspan="4"><b> ${weekday} </b></th>
+                    <th class="timeTableHead" colspan="4" style="font-size: 20px"><b> ${weekday} </b></th>
 
                     </thead>
 
                     <tbody>
                         <tr>
-                            <td width="24%"><b> Time </b></td>
-                            <td width="24%"><b> Name </b></td>
-                            <td width="24%"><b>Place </b></td>
-                            <td width="28%"><b>Additional information</b></td>
+                            <td width="24%" style="font-size: 20px"><b> Time </b></td>
+                            <td width="24%" style="font-size: 20px"><b> Name </b></td>
+                            <td width="24%" style="font-size: 20px"><b>Place </b></td>
+                            <td width="28%" style="font-size: 20px"><b>Additional information</b></td>
                         </tr>
                         <c:forEach items= "${user.timeTable.activities}" var="item" >
                             <c:if test="${item.weekDay.toString()==weekday}"> 
                                 <tr>
-                                    <th style="font-weight: normal"> ${item.time} </th>
-                                    <th style="font-weight: normal"> ${item.name} </th>
-                                    <th style="font-weight: normal"> ${item.place.name} </th>
-                                    <th style="font-weight: normal"> ${item.info} </th>
+                                    <th style="font-weight: normal; font-size: 18px"> ${item.time} </th>
+                                    <th style="font-weight: normal; font-size: 18px"> ${item.name} </th>
+                                    <th style="font-weight: normal; font-size: 18px"> ${item.place.name} </th>
+                                    <th style="font-weight: normal; font-size: 18px"> ${item.info} </th>
 
                                 </tr>
                             </c:if>

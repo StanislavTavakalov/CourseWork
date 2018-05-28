@@ -66,7 +66,7 @@ public class Event extends Activity {
 
     @Override
     public String getInfo() {
-        return endTime.get(Calendar.DAY_OF_MONTH) + "." + (endTime.get(Calendar.MONTH) + 1) 
+        return "End time: " + endTime.get(Calendar.DAY_OF_MONTH) + "." + (endTime.get(Calendar.MONTH) + 1) 
                 + "." + endTime.get(Calendar.YEAR) + " " + endTime.get(Calendar.HOUR_OF_DAY)
                 + ":" + endTime.get(Calendar.MINUTE);
     }
