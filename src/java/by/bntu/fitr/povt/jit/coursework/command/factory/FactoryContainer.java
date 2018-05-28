@@ -21,6 +21,7 @@ public class FactoryContainer {
     }
     
     private IDaoFactory daoFactory = new DaoFactory();
+    private ILogicFactory logicFactory = new LogicFactory();
 
     public IDaoFactory getDaoFactory() {
         return daoFactory;
@@ -29,7 +30,13 @@ public class FactoryContainer {
     public void setDaoFactory(IDaoFactory daoFactory) {
         this.daoFactory = daoFactory;
     }
-    
-    
+
+    public ILogicFactory getLogicFactory() {
+        return logicFactory;
+    }
+
+    public void setLogicFactory(ILogicFactory logicFactory) {
+        this.logicFactory = logicFactory;
+    }
 
 }

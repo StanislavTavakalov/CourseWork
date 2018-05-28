@@ -22,7 +22,8 @@ public class RegisterLogic {
             return false;
         }
 //        if (Registrar.registerLogin(enterLogin, enterPass)) {
-        if (FactoryContainer.getInstance().getDaoFactory().getRegistrar().registerLogin(enterLogin, enterPass)) {
+        String hashedPass = FactoryContainer.getInstance().getLogicFactory().getIHashCoder().get_SHA_512_SecurePasswordSimple(enterPass);
+        if (FactoryContainer.getInstance().getDaoFactory().getRegistrar().registerLogin(enterLogin, hashedPass)) {
             Log.LOG.info("New user:" + enterLogin);
             return true;
         } else {

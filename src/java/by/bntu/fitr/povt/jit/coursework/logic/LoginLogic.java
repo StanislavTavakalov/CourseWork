@@ -21,7 +21,8 @@ public class LoginLogic {
     
     public static boolean checkLogin(String enterLogin, String enterPass) {
 //        return Searcher.searchLogin(enterLogin, enterPass);
-        return FactoryContainer.getInstance().getDaoFactory().getSearcher().searchLogin(enterLogin, enterPass);
+        String hashedPass = FactoryContainer.getInstance().getLogicFactory().getIHashCoder().get_SHA_512_SecurePasswordSimple(enterPass);
+        return FactoryContainer.getInstance().getDaoFactory().getSearcher().searchLogin(enterLogin, hashedPass);
     }
     
     public static boolean deleteUser(String userLogin, UserLoginList userLoginList) {
