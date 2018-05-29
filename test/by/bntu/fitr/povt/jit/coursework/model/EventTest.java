@@ -31,17 +31,26 @@ public class EventTest {
         Activity a = new Event(2017, 5, 25, 0, 0, "", null, 0, 0, Activity.WeekDay.TUESDAY);
         assertFalse(a.check());
     }
+
+    @Test
+    public void testCheckFail4() {
+        Activity a = new Event(2017, 5, 30, 0, 0, "", null, 0, 0, Activity.WeekDay.TUESDAY);
+        assertFalse(a.check());
+    }
     
+    @Test
     public void testCheck() {
         Activity a = new Event(2018, 6, 21, 0, 0, "", null, 0, 0, Activity.WeekDay.TUESDAY);
         assertTrue(a.check());
     }
 
+    @Test
     public void testCheck2() {
         Activity a = new Event(2018, 5, 23, 0, 0, "", null, 0, 0, Activity.WeekDay.TUESDAY);
         assertTrue(a.check());
     }
 
+    @Test
     public void testCheck3() {
         Activity a = new Event(2019, 4, 10, 0, 0, "", null, 0, 0, Activity.WeekDay.TUESDAY);
         assertTrue(a.check());
